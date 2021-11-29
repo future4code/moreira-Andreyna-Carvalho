@@ -4,4 +4,8 @@ Zé Ramalho - https://www.youtube.com/watch?v=OEvFuXYHQjs
 Link Park - https://www.youtube.com/watch?v=kXYiU_JCYtU&ab_channel=LinkinPark
 Leyla Blue - https://www.youtube.com/watch?v=P9FtEVTmQAE&ab_channel=NuvemDeLetras
 
+<<<<<<< HEAD
 Resumindo... gostos bem ecléticos, tiver recomendações estou aceitando.
+=======
+Resumindo... gostos bem ecléticos, tiver recomendações estou aceitando.
+>>>>>>> 27fd005f23ec018f3da03b63364b562141cd8650
