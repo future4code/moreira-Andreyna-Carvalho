@@ -9,9 +9,9 @@ console.log('Sua idade é maior do que a do seu melhor amigo?', ComparacaoIdade)
 let NumberPar = prompt('Insira um número par');
 let StringNumber = Number(NumberPar);
 
-let resultado = StringNumber / 2;
+let resultado = StringNumber % 2;
 console.log(resultado)
-// Percebi que ele me mostrou o resultado da divisão ex. 2/2 = 1: 
+// Percebi que ele me mostrou o resto da divisão ex. 2%2 = 0: 
 
 // ------ ATIVIDADE 3 --------
 let IdadeUser = prompt('Qual a sua idade?');
