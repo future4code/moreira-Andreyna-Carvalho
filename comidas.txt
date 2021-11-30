@@ -1,0 +1,7 @@
+Vish tudo que for de comer eu mando para dentro
+tenho dessas não.
+<<<<<<< HEAD
+
+=======
+>>>>>>> 27fd005f23ec018f3da03b63364b562141cd8650
+Mas uma pizza, ou aquele burgão <3 é tentador demais
