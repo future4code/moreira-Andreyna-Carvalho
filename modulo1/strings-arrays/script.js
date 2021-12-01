@@ -31,8 +31,8 @@ let Tarefa3 = prompt('Qual a sua terceira tarefa do dia?')
 ListaDeTarefas.push(Tarefa1,Tarefa2,Tarefa3);
 console.log(ListaDeTarefas)
 
+let Concluida = prompt('Qual atividade tu já fez 0, 1 ou 2?')
+let numero = Number(Concluida)
 
-
-console.log(ListaDeTarefas.splice(2))
-// voce deve percorrer seu array com lenght
-// e substituir pelo numero proposto
+ListaDeTarefas.splice(numero);
+console.log(ListaDeTarefas)
