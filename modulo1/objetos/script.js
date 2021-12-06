@@ -34,16 +34,13 @@ function Person(pessoaUm, peopleOne){
 
     let nome = pessoaUm.nome.length;
     let name = peopleOne.name.length;
-
     let profissao = pessoaUm.profissao.length;
     let job = peopleOne.job.length;
 
     let resultadoUm = `${pessoaUm.nome}, possui ${nome} elementos, ${pessoaUm.idade} anos, ${pessoaUm.profissao}, possui ${profissao} elementos. `
     let resultadoOne = `${peopleOne.name}, have ${name} elements, ${peopleOne.age} years, ${peopleOne.job}, have ${job} elements. `
     
-    array.push(resultadoUm)
-    array.push(resultadoOne)
-
+    array.push(resultadoUm, resultadoOne)
     return array
 }
 console.log(Person(pessoaUm, peopleOne))
