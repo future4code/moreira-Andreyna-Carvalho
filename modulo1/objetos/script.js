@@ -22,7 +22,6 @@ const pessoaUm = {
     idade: 20,
     profissao: 'estudante'
 }
-
 const peopleOne = {
     name: 'Drica',
     age: 21,
@@ -49,20 +48,24 @@ console.log(Person(pessoaUm, peopleOne))
 let carrinho = [];
 
 const sacolaoFrutas = {
-    nome: "Laranja", disponivel: true,
-    nome1: "Mirtilo", disponivel1: true,
+    nome: "Laranja", disponivel: true
+}
+const sacolaFrutas2 = {
+    nome1: "Mirtilo", disponivel1: true
+}
+const sacolaFrutas3 = {
     nome2: "Abacaxi", disponivel2: true
 }
 
-function Verfica(sacolaoFrutas){
-    let array = `${sacolaoFrutas.nome} está disponível? - ${sacolaoFrutas.disponivel}`
-    let array1 = `${sacolaoFrutas.nome1} está disponível? - ${sacolaoFrutas.disponivel1}`
-    let array2 = `${sacolaoFrutas.nome2} está disponível? - ${sacolaoFrutas.disponivel2}`
+function Verfica(sacolaoFrutas, sacolaFrutas2, sacolaFrutas3){
+    let array = sacolaoFrutas;
+    let array1 = sacolaFrutas2;
+    let array2 = sacolaFrutas3
 
     carrinho.push(array, array1, array2)
     return carrinho
 }
-console.log(Verfica(sacolaoFrutas))
+console.log(Verfica(sacolaoFrutas, sacolaFrutas2, sacolaFrutas3))
 // Como que faz para aparecer que são objetos?
 
 // ----------- Desafio  ------------------
