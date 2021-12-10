@@ -41,4 +41,3 @@ if(confirm('Quer iniciar o jogo?')) {
 } else {
 	console.log('O jogo acabou');
 }
-
