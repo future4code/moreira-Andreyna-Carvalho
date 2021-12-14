@@ -179,8 +179,14 @@ function retornaArrayOrdenadoAlfabeticamente(consultas) {
 // EXERCÍCIO 15B
 
 function data(a,b) {
-  return b.dataDaConsulta > a.dataDaConsulta
+  if (a.dataDaConsulta < b.dataDaConsulta){
+    return 1
+  }
+  else {
+    return -1
+  }
 }
+
 function retornaArrayOrdenadoPorData(consultas) {
   return consultas.sort(data)
 }
