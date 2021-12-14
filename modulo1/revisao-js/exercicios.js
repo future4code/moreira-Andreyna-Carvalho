@@ -164,15 +164,24 @@ function retornaContasComSaldoAtualizado(contas) {
 }
 
 // EXERCÍCIO 15A
+// Condição de comparação de letras (help do tio Google)
+function alfabeto(a,b){ // crio uma função de comparador
+  if (a.nome < b.nome) {
+    return -1
+  } else {
+    return true
+  } // faço com que o objeto nome seja ordenado
+}
 function retornaArrayOrdenadoAlfabeticamente(consultas) {
-  const testeOne = (contas) => {
-    return contas.nome.sort()
-  }
-  const resultadoOne = contas.filter(testeOne)
-  return resultadoOne
+  return consultas.sort(alfabeto) 
 }
 
 // EXERCÍCIO 15B
-function retornaArrayOrdenadoPorData(consultas) {
-   
+
+function data(a,b) {
+  return b.dataDaConsulta > a.dataDaConsulta
 }
+function retornaArrayOrdenadoPorData(consultas) {
+  return consultas.sort(data)
+}
+// Não consegui, até o presente momento.
