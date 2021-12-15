@@ -1,0 +1,18 @@
+.container {
+    background-color: rgb(105, 103, 105);
+}
+
+label, input {
+    display: flex;
+    font-size: 22px;
+}
+
+button {
+    font-size: 25px;
+    margin: 0 3.8%;
+    border-radius: 10px;
+}
+button:hover {
+    background-color: orangered;
+    cursor: pointer;
+}
