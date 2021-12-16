@@ -1,0 +1,37 @@
+body {
+    background-color:rgb(80, 78, 78);
+    margin: 4px;
+}
+
+h1, h2, p {
+    color: rgb(216, 207, 207);
+}
+
+.cabecalhoOne {
+    text-align: center;
+    border: red solid;
+    background-color: black;
+    font-size: 32px;
+}
+.cabecalhoTwo {
+    text-align: center;
+    border: red solid;
+    background-color: black;
+    margin: 10px 0;
+}
+
+.titulo {
+    text-align: center;
+    color: black;
+    font-size: 25px;
+}
+
+a {
+    font-size: 22px;
+    margin: 10px;
+    color: rgb(216, 207, 207);
+}
+a:hover {
+    color: orangered;
+    cursor: pointer;
+}
