@@ -65,6 +65,12 @@ div img {
   *  ESTILOS HOME 
   *
   **/
+.container{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 #container-de-descricao {
     background-color: #2274a5;
@@ -79,11 +85,10 @@ div img {
     background-color: #e7eb90;
 }
 
-#container-para-comprar>p {
+#container-para-comprar > p {
     color: #c44f00;
     padding: 100px 0;
     font-size: 60px;
-    display: flex;
 }
 /**
   *
