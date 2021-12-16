@@ -19,22 +19,16 @@ h2 {
 input {
     height: 20px;
     width: 500px;
+    border: none;
+    border-bottom: black solid;
 }
 
 button:focus {
     color: white;    
 }
 
-img {
-    width: 100px;
-}
-
 div>p:first-child {
     display: inline;
-}
-
-div img {
-    background: black;
 }
 
 .botao-amarelo {
@@ -170,4 +164,5 @@ img {
 #lupa {
     width: 20px;
     height: 22px;
+    cursor: pointer;
 }
