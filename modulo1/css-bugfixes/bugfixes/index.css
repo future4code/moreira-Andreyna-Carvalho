@@ -104,6 +104,12 @@ div:last-child {
     text-align: center;
 }
 
+ol {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .container-comprar {
     text-align: center;
     display: flex;
