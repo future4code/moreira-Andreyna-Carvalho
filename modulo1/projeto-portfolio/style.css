@@ -117,7 +117,11 @@ footer {
 #projetoImg {
     display: flex;
     flex-direction: row;
-    width: 70%;
+    width: 80%;
+}
+
+#projetoImg img {
+    padding: 12px;
 }
 
 #projeto {
