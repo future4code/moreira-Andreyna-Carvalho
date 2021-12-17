@@ -83,6 +83,13 @@ body {
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
+    display: flex;
+    align-items: center;
+}
+
+#container-de-descricao p {
+    width: 15.8%;
+    font-size: 20px;
 }
 
 #container-de-descricao > ol {
@@ -97,8 +104,9 @@ body {
 #container-para-comprar > p {
     color: #c44f00;
     padding: 100px 0;
-    font-size: 60px;    
+    font-size: 60px; 
 }
+
 /**
   *
   *  ESTILOS COMPRAR 
