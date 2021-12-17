@@ -10,6 +10,12 @@
     padding: 0;
 }
 
+#search{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
 h2 {
     background-color: #fe7e02;
     padding: 10px 5px 10px 5px;
@@ -164,13 +170,27 @@ td button:active{
     color: white;
 }
 
-img {
+tr img {
     width: 70px;
     height: 70px;
 }
 
+.container-do-search { 
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
 #lupa {
+    background-image: url(../bugfixes/lupaOne.png);
+    background-repeat: no-repeat;
     width: 20px;
-    height: 22px;
+    height: 21px;
     cursor: pointer;
+}
+#lupa:hover {
+    background-image: url(../bugfixes/lupa.png);
+}
+#lupa:active {
+    background-image: url(../bugfixes/lupaOne.png);
 }
