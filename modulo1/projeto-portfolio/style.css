@@ -114,6 +114,11 @@ footer {
     font-size: 24px;
     color: white;
 }
+#projetoImg {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+}
 
 #projeto {
     color: rgb(222, 228, 228);
