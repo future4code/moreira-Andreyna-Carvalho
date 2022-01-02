@@ -219,3 +219,6 @@ footer {
     text-align: center;
     justify-content: center;
 }
+.fantasmaUm, .fantasmaDois, .fantasmaTres, .fantasmaQuatro{
+    opacity: 0;
+}
