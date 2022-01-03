@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+header {
+    display: flex;
+    background-color: mediumvioletred;
+}
+.juntos {
+    display: flex;
+    margin: 0 50px;
+    width: 80%;
+}
+button {
+    width: 10%;
+    height: 20px;
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+}
+header img {
+    width: 5%;
+    margin-right: 20px;
+}
+
+.corpo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1200px;
+}
+
+.home {
+    width: 20%;
+    background-color: #f2d0e0;
+    justify-content: center;
+}
+.bolos {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.um {
+    width: 20%;
+    margin: 18px;
+    border: darkgray solid 1px;
+    text-align: center;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.img {
+    width: 100%;
+    cursor: pointer;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 20px 10px;
+}
+.li {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 12px;
+    cursor: pointer;
+    width: 100%;
+}
+.text {
+    width: 80%;
+    text-align: center;
+}
+
+li > img {
+    width: 12%;
+}
+
+footer {
+    background-color: mediumvioletred;
+    text-align: center;
+}
