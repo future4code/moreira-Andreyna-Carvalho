@@ -37,6 +37,22 @@ header img {
     background-color: #f2d0e0;
     justify-content: center;
 }
+.li {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 12px;
+    cursor: pointer;
+    width: 100%;
+}
+.text {
+    width: 80%;
+    text-align: center;
+}
+
+li > img {
+    width: 12%;
+}
+
 .bolos {
     width: 80%;
     display: flex;
@@ -63,21 +79,6 @@ header img {
     flex-direction: row;
     flex-wrap: wrap;
     margin: 20px 10px;
-}
-.li {
-    display: flex;
-    flex-direction: row;
-    margin: 10px 12px;
-    cursor: pointer;
-    width: 100%;
-}
-.text {
-    width: 80%;
-    text-align: center;
-}
-
-li > img {
-    width: 12%;
 }
 
 footer {
