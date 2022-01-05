@@ -73,12 +73,12 @@ a{
     section {
         display: flex;
         flex-wrap: wrap;
-        width: 80%;
+        width: 70%;
         margin: 20px 20px;
     }
     footer {
         background-color: rgb(68, 66, 66);
-        position: absolute;
+        position: relative;
         bottom: 0;
         margin-left: 5px;
     }
