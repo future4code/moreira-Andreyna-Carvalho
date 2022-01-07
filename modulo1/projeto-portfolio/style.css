@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: rgb(218, 211, 211);
+    overflow-x: hidden;
+}
+
+body {
+    background-color: rgb(22, 20, 20);
+    text-align: center;
+    width: 100%;
+    max-width: 1500px;
+    display: block;
+    margin: auto;
+}
+.nav{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.containerLink {
+    list-style: none;
+    display: flex;
+}
+.link a {
+    opacity: 0.7;
+    text-decoration: none;
+    font-size: 20px;
+}
+.link a:hover, .link.first a{
+    opacity: 1;
+    color: white;
+}
+#perfil {
+    top: 0;
+    right: 0;
+    width: 800px;
+    opacity: 0.3;
+}
+#sobre {
+    width: 100%;
+    padding: 0 80px;
+    margin-top: 50px;
+    margin-bottom: 70px;
+    display: flex;
+    align-items: center;
+}
+.infoMy {
+    font-size: 62px;
+    font-weight: 300;
+    padding: 0 5px;
+}
+
+
+/*  Deixando flexivel*/
+#projeto {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+#exper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+.text {
+    margin-top: 20px;
+}
+
+.um{
+    width: 47%;
+    background-color: rgb(100, 7, 25);
+    margin: 7px;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    padding: 30px;
+}
+.dois{
+    width: 47%;
+    background-color:rgb(11, 61, 61);
+    margin: 7px;
+    font-size: 18px;
+    text-align: center;
+    padding: 30px;
+    color: white;
+}
+.tres{
+    width: 47%;
+    background-color: darkblue;
+    margin: 7px;
+    font-size: 18px;
+    text-align: center;
+    padding: 30px;
+    color: white;
+}
+.quatro{
+    width: 47%;
+    background-color:rgb(145, 93, 30);
+    margin: 7px;
+    font-size: 18px;
+    text-align: center;
+    padding: 30px;
+    color: white;
+}
+
+button {
+    width: 100px;
+    height: 40px;
+    margin: 40px 10px;
+}
+button:hover {
+    background-color: rgb(226, 69, 11);
+    border-radius: 10px;
+}
+button a{
+    color: black;
+    text-decoration: none;
+}
+/* DESCRIÇÃO */
+#sobreMe{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(3, 3, 20);
+}
+.sobreMim {
+    width: 100%;
+    font-size: 20px;
+    text-align: left;
+    padding: 5px 50px;
+}
+.sobreMim h3 {
+    text-align: center;
+}
+
+article, article p {
+    margin: 20px;
+}
+
+li {
+    font-size: 20px;
+    width: 100%;
+    font-size: 20px;
+    text-align: left;
+    padding: 5px 50px;
+}
+
+.form {
+    text-align: center;
+    padding: 20px;
+    background-color: #27282D;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.form input {
+    padding-left: 10px;
+    font-size: 16px;
+    margin: 10px auto;
+    max-width: 500px;
+    width: 100%;
+    height: 35px;
+    border: 1px solid #ccc;
+    background-color: white;
+}
+.form textarea {
+    padding-left: 10px;
+    font-size: 16px;
+    max-width: 500px;
+    margin: 10px auto;
+    width: 100%;
+    height: 120px;
+    border: 1px solid #ccc;
+    background-color: white;
+}
+.form #formSubmit {
+    background-color: rgb(255, 104, 4);
+    color: black;
+    cursor: pointer;
+}
+.form #formSubmit:hover {
+    background-color: rgb(255, 104, 4);
+    color: black;
+    cursor: pointer;
+    border-radius: 10px;
+    height: 40px;
+}
+.form #formSubmit:active {
+    color: white;
+}
+
+/* FOOTER */
+#gif {
+    width: 50%;
+    margin: 0 50px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 50%;
+}
+
+#projetoImg {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+}
+.fantasmaUm, .fantasmaDois, .fantasmaTres, .fantasmaQuatro{
+    opacity: 0;
+}
