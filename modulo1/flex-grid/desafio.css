@@ -1,0 +1,83 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    text-align: center;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    max-width: 1400px;
+}
+
+h1 {
+    color: white;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+}
+.one {
+    width: 25%;
+    background-color: green;
+}
+.two {
+    width: 75%;
+    background-color: yellow;
+}
+
+.corpo {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 420px;
+}
+.corpoTwo {
+    display: flex;
+    flex-wrap: wrap;
+    height: 200px;
+}
+.tudo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: blueviolet;
+}
+.doisQuartos {
+    width: 50%;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+.umQuarto {
+    width: 25%;
+    background-color: white;
+}
+
+.fim {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 25%;
+}
+.red {
+    background-color: red;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.green {
+    background-color: green;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer {
+    background-color: blueviolet;
+}
