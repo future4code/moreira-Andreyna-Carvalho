@@ -1,0 +1,127 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+li {
+  cursor: pointer;
+}
+li:hover {
+  color: red;
+}
+
+header {
+  display: flex;
+  height: 60px;
+  background: rgb(201, 91, 51);
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+input {
+  width: 20%;
+  margin-right: 20px;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 20px 20px;
+}
+
+.lateral {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.movie {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding-bottom: 20px;
+}
+.movie1 {
+  cursor: pointer;
+  margin: 10px 18px;
+  width: 100%;
+}
+.movie1:hover {
+  background-color: rgb(191, 196, 196);
+}
+
+.separacao {
+  border-bottom: rgb(165, 158, 158) solid 2px;
+  margin-bottom: 8px;
+  padding-bottom: 10px;
+}
+p {
+  margin: 20px 10px;
+}
+
+footer {
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  background-color: rgb(114, 111, 111);
+  color: white;
+}
+
+@media screen and (min-width: 678px) { 
+  header {
+      width: 98%;
+      margin: 5px 10px;
+      background-color: orangered;
+  }
+  section {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 10px 20px;
+  }
+  
+  .lateral {
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+  }
+  
+  .movie {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 70%;
+  }
+
+  .movie1 {
+    width: 20%;
+    cursor: pointer;
+    border: black solid 2px;
+  }
+}
+@media screen and (min-width: 680px) { 
+  .movie1 {
+    width: 27%;
+    cursor: pointer;
+    border: none;
+  }
+}
+@media screen and (min-width: 1200px) { 
+  .movie1 {
+    width: 20%;
+    cursor: pointer;
+    border: none;
+  }
+}
+@media screen and (min-width: 1800px) { 
+  .movie1 {
+    width: 20%;
+    cursor: pointer;
+    border: none;
+  }
+}
