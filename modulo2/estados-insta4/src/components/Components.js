@@ -52,10 +52,6 @@ class Components extends React.Component {
 
         return (
             <div>
-                <header>
-                    <h1> Feed de Noticias</h1>
-                </header>
-
                 <PostContainer>
                     <Lateral>
                         <Img src='https://i.pinimg.com/originals/09/75/f8/0975f8e05f41b401e6bca660701c6a5b.jpg' alt='foto'></Img>

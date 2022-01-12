@@ -52,6 +52,11 @@ class Components3 extends React.Component {
 
         return (
             <div>
+
+                <header>
+                    <h1> Feed de Noticias</h1>
+                </header>
+
                 <PostContainer>
                     <Lateral>
                         <Img src='https://www.animeunited.com.br/oomtumtu/2017/09/shokugeki-no-souma.png' alt='foto'></Img>
