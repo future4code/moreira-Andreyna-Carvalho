@@ -7,10 +7,11 @@ flex-direction: column;
 align-items: center;
 `
 export const Img = styled.img `
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     border-radius: 35px;
     margin-right: 20px;
+    padding: 5px;
 `
 
 export const Lateral = styled.div `
@@ -21,8 +22,9 @@ export const Lateral = styled.div `
 export const PostContainer = styled.div `
     display: flex;
     flex-direction: column;
-    max-width: 300px;
+    width: 300px;
     border: solid grey 2px;
+    margin: 20px 0;
 ` 
 
 export const ImgPost = styled.img `

@@ -4,7 +4,7 @@ import {SecaoComentario} from './Comments'
 import IconePreto from '../img/Preto.png'
 import IconeVermelho from '../img/Vermelho.png'
 
-class Components extends React.Component {
+class Components2 extends React.Component {
 
     state = {
         like: 0,
@@ -52,16 +52,12 @@ class Components extends React.Component {
 
         return (
             <div>
-                <header>
-                    <h1> Feed de Noticias</h1>
-                </header>
-
                 <PostContainer>
                     <Lateral>
-                        <Img src='https://i.pinimg.com/originals/09/75/f8/0975f8e05f41b401e6bca660701c6a5b.jpg' alt='foto'></Img>
-                        <p> Naruto </p>
+                        <Img src='https://i.pinimg.com/originals/06/cd/94/06cd942c482e00b245e8eceda45a45a9.jpg' alt='foto'></Img>
+                        <p> Kakashi </p>
                     </Lateral>
-                        <ImgPost src='https://pm1.narvii.com/7282/478e8e5e890c4231743ac816885e87a61ed9a37fr1-1061-1061v2_hq.jpg' alt='feed'></ImgPost>
+                        <ImgPost src='https://i.pinimg.com/736x/5d/09/f7/5d09f7a170fa049231e22d3c51b7aec6.jpg' alt='feed'></ImgPost>
                     <Laterais>
                         <Interacoes>
                             <Icons onClick={this.ContadorLike} src={iconeCurtida} alt='icons'></Icons>
@@ -74,9 +70,10 @@ class Components extends React.Component {
                     </Laterais>
                     {componenteComentario}
                 </PostContainer>
-            </div> 
+            </div>
         )
+
     }
 }
 
-export default Components;
+export default Components2;

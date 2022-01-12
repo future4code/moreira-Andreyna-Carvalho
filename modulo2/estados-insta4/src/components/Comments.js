@@ -12,20 +12,20 @@ const InputComentario = styled.input`
     margin-right: 5px;
 `
 
-export default class Comments extends Component {
+export class SecaoComentario extends Component {
 	state = {
-        comentario: 0
+		comentario: 'Insira seu comentário'
 	}
 
-	onChangeComentario() {
-        alert('TO ligado!')
+	onChangeComentario(e) {
+		this.setState({comentario: e.target.value})
 	}
 
 	render() {
 		return <CommentContainer>
 			<InputComentario
 				placeholder={'Comentário'}
-				value={''}
+				value={this.state.onChangeComentario}
 				onChange={this.onChangeComentario}
 			/>
 			<button onClick={this.props.aoEnviar}>Enviar</button>
