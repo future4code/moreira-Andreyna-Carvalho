@@ -1,26 +1,16 @@
 import React from 'react';
-import {Perfil, Header, Bod, Foot, UmTerco, DoisTerco, Input, 
-  Mensagem, DistancH4, DistancP, DistancB, Revers} from '../Components/Imgs'
-import styled from "styled-components";
-
-
-export function Head() {
-
-  return (
-    <Header>
-      <Perfil src='https://img2.gratispng.com/20180414/rpq/kisspng-windows-live-messenger-msn-instant-messaging-micro-viber-5ad1f81fb871d5.4486480315237099837555.jpg'></Perfil>
-      <h3>MSN Chat</h3>
-      <Perfil src='https://img2.gratispng.com/20180414/rpq/kisspng-windows-live-messenger-msn-instant-messaging-micro-viber-5ad1f81fb871d5.4486480315237099837555.jpg'></Perfil>
-    </Header>
-  )
-}
+import {
+  Bod, UmTerco, DoisTerco, Input,
+  Mensagem, DistancH4, DistancP, Revers, Me}
+  from '../Components/Imgs'
+  
 
 export class Body extends React.Component {
 
   state = {
     nome: '',
     msg: '',
-    mensagens: [{nome: 'andreyna', msg: 'Hello World'}]
+    mensagens: [{ nome: 'andreyna', msg: 'Hello World' }, { nome: 'Eu', msg: 'Sou apenas um teste' } ]
   }
 
   pegarInput = (event) => this.setState({ nome: event.target.value });
@@ -38,17 +28,6 @@ export class Body extends React.Component {
     });
   };
 
-  deletMsg = (indexRecebido) => {
-    const novoChat = [...this.state.mensagens].filter(
-      (Chat, index) => {
-        return index !== indexRecebido;
-      }
-    );
-    this.setState({
-      mensagens: novoChat
-    });
-  };
-
   teclaEnter = (event) => {
     if (event.keyCode === 13 && this.state.nome != '' && this.state.msg != '') {
       const novoChat = [
@@ -62,20 +41,40 @@ export class Body extends React.Component {
       });
     }
   }
-  
+
+  click = (indexRecebido) => {
+      const novoChat = [...this.state.mensagens].filter(
+        (Chat, index) => {
+          return index !== indexRecebido;
+        }
+      );
+      this.setState({
+        mensagens: novoChat
+      });
+  }
+
   render() {
 
     const todoChat = this.state.mensagens.map(
       (Chat, indexEnviado) => {
-        return (
-          <Mensagem key={indexEnviado}>
-            <DistancH4>{Chat.nome}:</DistancH4>
-            <DistancP>{Chat.msg}</DistancP>
-            <DistancB onClick={() => this.deletMsg(indexEnviado)}> delet</DistancB>
-          </Mensagem>
-        );
+        if(Chat.nome.toLowerCase() === 'eu'){
+          return (
+            <Me onDoubleClick={() => this.click(indexEnviado)} key={indexEnviado}>
+              <DistancP>{Chat.msg}</DistancP>
+            </Me>
+          )
+        }
+        else {
+          return (
+            <Mensagem onDoubleClick={() => this.click(indexEnviado)} key={indexEnviado}>
+              <DistancH4>{Chat.nome}:</DistancH4>
+              <DistancP>{Chat.msg}</DistancP>
+            </Mensagem>
+          )
+        }
       }
     );
+
     return (
       <Bod>
         <div>
@@ -89,10 +88,4 @@ export class Body extends React.Component {
       </Bod>
     )
   }
-}
-
-export function Footer() {
-  return(
-    <Foot>Eu tentei ser um Footer</Foot>
-  )
 }
