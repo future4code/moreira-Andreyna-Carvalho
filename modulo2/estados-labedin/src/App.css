@@ -5,3 +5,16 @@
   flex-wrap: nowrap;
   align-items: center;
 }
+img {
+  width: 200px;
+}
+
+.post-container {
+  width: 500px;
+  margin: 20px auto;
+}
+
+.post-header {
+
+}
+
