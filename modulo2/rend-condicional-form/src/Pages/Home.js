@@ -1,5 +1,5 @@
 import React from "react";
-import { QuestionsOne } from "./QuestionsOne";
+import Questions from "./Questions";
 
 export default class Home extends React.Component {
 
@@ -22,18 +22,17 @@ export default class Home extends React.Component {
                 return <Home botaoLogout={this.fazerLogout} />
             }
             else {
-                return <QuestionsOne botaoLogin={this.fazerLogin} />
+                return <Questions botaoLogin={this.fazerLogin} />
             }
         }
-
-
 
         return (
             <div>
                 <h1>Bem-vindo(a)! Vamos iniciar?</h1>
                 <div>
-                    <button onClick={this.props.botaoLogin}>Questions</button>
                     <button onClick={this.props.botaoLogout}>Logout</button>
+
+                    <h3>Aperte no botão abaixo para iniciar</h3>
                 </div>
                 {mudarTela()}
             </div>

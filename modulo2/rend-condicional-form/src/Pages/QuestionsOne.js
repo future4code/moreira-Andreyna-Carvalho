@@ -1,32 +1,9 @@
 import React from "react";
-import { ButtonNext } from "../Components/ButtonNext";
-import Home from "./Home";
-import { QuestionsTwo } from "./QuestionsTwo";
 
 export class QuestionsOne extends React.Component {
 
-    state = {
-        estaLogado: false
-    };
-
-    fazerLogin = () => {
-        this.setState({ estaLogado: true });
-    };
-
-    fazerLogout = () => {
-        this.setState({ estaLogado: false })
-    }
-
-    render() {
-        console.log(this.state);
-        const mudarTela = () => {
-            if (this.state.estaLogado) {
-                return <Home botaoLogout={this.fazerLogout} />
-            }
-            else {
-                return <ButtonNext buttonNext={this.fazerLogin} />
-            }
-        }
+    render(){
+  
         return (
             <div>
                 <form>
@@ -46,12 +23,6 @@ export class QuestionsOne extends React.Component {
                         <option value="ESI">Ensino superior completo</option>
                     </select>
 
-                    <div>
-                        <button onClick={this.irPerguntas}>Questions</button>
-                        <button onClick={this.voltarHome}>Voltar</button>
-                    </div>
-
-                    {mudarTela()}
                 </form>
             </div>
         );

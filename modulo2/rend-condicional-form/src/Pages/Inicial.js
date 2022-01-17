@@ -1,7 +1,6 @@
 import React from "react";
 import Home from "./Home";
-import Login from "./Login";
-
+import Login from "../Components/Login";
 export class Inicial extends React.Component {
 
     state = {
