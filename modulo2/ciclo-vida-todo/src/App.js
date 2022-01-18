@@ -3,6 +3,11 @@ import styled from 'styled-components'
 import './styles.css'
 
 const TarefaList = styled.ul`
+  width: 250px;
+  border: solid 2px black;
+  padding: 20px 0;
+  padding-left: 20px ;
+
 `
 
 const Tarefa = styled.li`
@@ -21,15 +26,16 @@ const Lateral = styled.div`
   padding: 0;
   width: 200px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: nowrap;
+  justify-content: space-between;
 `
 const Lat = styled.div`
-  width: 30%;
+  width: 50%;
 
 `
 const Botao = styled.button`
-  width: 30%;
+  width: 50%;
 `
 
 class App extends React.Component {
@@ -153,17 +159,20 @@ class App extends React.Component {
         <TarefaList>
           <Lateral>
 
-            {listaFiltrada.map(tarefa => {
+            <Lat>
+              {listaFiltrada.map(tarefa => {
 
-              return (
-                <Tarefa
-                  completa={tarefa.completa}
-                  onClick={() => this.selectTarefa(tarefa.id)}
-                >
-                  {tarefa.texto}
-                </Tarefa>
-              )
-            })}
+                return (
+                  <Tarefa
+                    completa={tarefa.completa}
+                    onClick={() => this.selectTarefa(tarefa.id)}
+                  >
+                    {tarefa.texto}
+                  </Tarefa>
+                )
+              })}
+            </Lat>
+
             <Lat>
               {listaTarefa}
             </Lat>
