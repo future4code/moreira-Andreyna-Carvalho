@@ -49,8 +49,6 @@ class App extends React.Component {
   }
 
   buscarLocal = () => {
-    const inputValue = localStorage.getItem('inputValue')
-    const filtro = localStorage.getItem('filtro')
     const tarefas = localStorage.getItem('tarefas')
     const toDo = JSON.parse(tarefas)
 
@@ -107,7 +105,7 @@ class App extends React.Component {
   delet = (indexRecebido) => {
     const newList = [...this.state.tarefas].filter(
       (list, index) => {
-        return index != indexRecebido
+        return index !== indexRecebido
       }
     )
     this.setState({ tarefas: newList })
