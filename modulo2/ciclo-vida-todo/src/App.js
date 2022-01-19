@@ -9,14 +9,12 @@ const TarefaList = styled.ul`
   padding-left: 20px ;
 
 `
-
 const Tarefa = styled.li`
   text-align: left;
   text-decoration: ${({ completa }) => (completa ? 'line-through' : 'none')};
   width: 50%;
   display: flex;
 `
-
 const InputsContainer = styled.div`
   display: grid;
   grid-auto-flow: column;
@@ -40,6 +38,20 @@ const Botao = styled.button`
 
 class App extends React.Component {
 
+  //Observações importantes, sinto que esse código está na mais perfeita e
+  // pura de uma gambiarra!!!
+  // Vou deixar por agr, meus conhecimentos ainda não são suficientes,
+  // Porém saibaaaa que eu naum desisti em Thiago!! 
+  // Quanto eu tiver fera no React voltarei para esse projeto!
+
+  state = {
+    inputValue: '',
+    filtro: '',
+    tarefas: [
+      { id: Date.now(), texto: 'texto da primeira tarefa', completa: false },
+      { id: Date.now(), texto: 'texto da segunda tarefa', completa: true }
+    ]
+  }
 
   salvarLocal = () => {
     localStorage.setItem('valor', this.state.inputValue);
@@ -49,23 +61,14 @@ class App extends React.Component {
   }
 
   buscarLocal = () => {
-    const tarefas = localStorage.getItem('tarefas')
-    const toDo = JSON.parse(tarefas)
+    const tarefa2 = localStorage.getItem('tarefas')
+    const toDo = JSON.parse(tarefa2)
 
     this.setState({
       inputValue: '',
       filtro: '',
-      tarefas: toDo || ''
+      tarefas: toDo
     })
-  }
-
-
-  state = {
-    inputValue: '',
-    filtro: '',
-    tarefas: [
-      { id: Date.now(), texto: 'texto da primeira tarefa', completa: false },
-    ]
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -127,6 +130,24 @@ class App extends React.Component {
       }
     })
 
+    const Sep = this.state.tarefas.filter(tarefa => {
+      switch (this.state.filtro) {
+        case '':
+          return !tarefa.completa
+        default:
+          return true
+      }
+    })
+
+    const Comp = this.state.tarefas.filter(tarefa => {
+      switch (this.state.filtro) {
+        case '':
+          return tarefa.completa
+        default:
+          return true
+      }
+    })
+
     const listaTarefa = this.state.tarefas.map(
       (tarefa, indexEnviado) => {
         return (
@@ -136,6 +157,7 @@ class App extends React.Component {
         )
       }
     )
+
 
     return (
       <div className="App">
@@ -175,6 +197,24 @@ class App extends React.Component {
               {listaTarefa}
             </Lat>
           </Lateral>
+
+          <h3>Tarefas Pendentes:</h3>
+
+          {Sep.map(tarefa => {
+            return (
+              <Tarefa>
+                {tarefa.texto}
+              </Tarefa>
+            )
+          })}
+          <h3>Tarefas completas:</h3>
+          {Comp.map(tarefa => {
+            return (
+              <Tarefa>
+                {tarefa.texto}
+              </Tarefa>
+            )
+          })}
         </TarefaList>
       </div>
     )
