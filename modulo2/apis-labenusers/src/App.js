@@ -2,8 +2,8 @@ import React from 'react';
 import { Link, Switch, Route } from 'react-router-dom';
 import Home from './Pages/Home';
 import Login from './Pages/Login';
-import Details from './Pages/Details';
 import styled from "styled-components";
+import Search from './Pages/Search';
 
 const Lin = styled.span`
       color: white;
@@ -27,7 +27,7 @@ const Foot = styled.footer`
       padding: 2px 0;
       background-color: black;
       opacity: 0.9;
-      position: relative;
+      position: fixed;
       bottom:0;
       left:0;
       color: white;
@@ -49,7 +49,7 @@ export default class App extends React.Component {
           <Nav>
             <Link to="/"> <ExDig>Login </ExDig></Link>
             <Link to="/home" > <ExDig>Loja </ExDig> </Link>
-            <Link to="/details" > <ExDig>Loja </ExDig> </Link>
+            <Link to="/search"><ExDig>Voltar ao cadastro</ExDig></Link>
             <Lin>Seja bem-vindo(a)</Lin>
           </Nav>
         </Head>
@@ -57,7 +57,7 @@ export default class App extends React.Component {
           <Switch>
             <Route exact path='/' component={Login} />
             <Route exact path='/home' component={Home} />
-            <Route exact path='/details' component={Details} />
+            <Route exact path='/search' component={Search} />
           </Switch>
         </main>
 

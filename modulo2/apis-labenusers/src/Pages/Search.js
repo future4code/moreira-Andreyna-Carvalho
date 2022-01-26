@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 import axios from "axios";
 import { Butt, Cont, Margin, ContainerLogin  } from "../Components/Syled";
 
-const urlCreate = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
-
 const getAllUsers =
   "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users";
 
@@ -14,7 +12,7 @@ const headers = {
   }
 }
 
-export default class Login extends React.Component {
+export default class Search extends React.Component {
 
   state = {
     userList: [],
@@ -45,14 +43,15 @@ export default class Login extends React.Component {
   }
 
   createUser = () => {
+    const search = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/search?name=&email="
+    
     const body = {
       name: this.state.name,
       email: this.state.email
     }
 
-    axios.post(urlCreate, body, headers)
+    axios.get(search, headers)
       .then((res) => {
-        this.setState({ name: '', email: ''})
         this.getAllList();
       })
       .catch((err) => {
@@ -65,15 +64,15 @@ export default class Login extends React.Component {
 
     return (
       <Cont>
-        <h1> Faça seu Login</h1>
+        <h1> Pesquise pelo nome/email</h1>
 
         <ContainerLogin>
           <Margin value={this.state.name}
-            onChange={this.onInputName} type='text' placeholder="Seu nome"></Margin>
+            onChange={this.onInputName} type='text' placeholder="Nome"></Margin>
           <Margin value={this.state.email}
-            onChange={this.onInputEmail} type='email' placeholder="Seu melhor email"></Margin>
-          <Butt onClick={this.createUser}>Criar usuário</Butt>
-          <Link to="/home"><Butt>Fazer Login</Butt></Link>
+            onChange={this.onInputEmail} type='text' placeholder="Email"></Margin>
+          <Butt onClick={this.createUser}>Criar Buscar</Butt>
+          <Link to="/home"><Butt>Voltar para</Butt></Link>
         </ContainerLogin>
 
 
