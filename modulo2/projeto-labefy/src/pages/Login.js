@@ -22,9 +22,9 @@ export default class Login extends React.Component {
             <ContLogin>
                 <ContainerLogin>
                     <h1> Faça seu Login</h1>
-                    <Margin value={this.state.name}
+                    <Margin required value={this.state.name}
                         onChange={this.onInputName} type='text' placeholder="Nome"></Margin>
-                    <Margin value={this.state.email}
+                    <Margin required value={this.state.email}
                         onChange={this.onInputEmail} type='email' placeholder="Email"></Margin>
                     <Link to="/animefy"><Butt>Fazer Login</Butt></Link>
                 </ContainerLogin>

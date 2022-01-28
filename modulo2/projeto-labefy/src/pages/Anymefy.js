@@ -3,11 +3,11 @@ import React from "react";
 import {ContAnyme, Tittle } from "../components/syledAll";
 
 import {IdPlaylist} from "../services/IdPlaylist";
-import {InfoPlaylist} from "../services/InfoPlaylist";
 import Tracks from "./Tracks";
 
 export default class Anymefy extends React.Component {
 
+    //condição de click feito juntamente com a instrutora na revisão de react
     state = {
         playlistClicada: "",
         mudarPagina: "list",
