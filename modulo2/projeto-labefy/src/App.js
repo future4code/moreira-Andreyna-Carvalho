@@ -12,8 +12,6 @@ import Login from "./pages/Login";
 import Premium from "./pages/Premium";
 import Tracks from "./pages/Tracks";
 
-
-
 class App extends React.Component {
 
   render() {
@@ -25,7 +23,7 @@ class App extends React.Component {
             <Link to="/"> <DesignerTop>Home</DesignerTop></Link>
             <Link to="/Login" > <DesignerTop>Login </DesignerTop> </Link>
             <Link to="/animefy"><SpanNone>AnimeFy</SpanNone></Link> 
-            <Link to="/create" > <SpanNone>createTracks </SpanNone> </Link>
+            <Link to={this.props.viewDetails} > <SpanNone>createTracks </SpanNone> </Link>
             <Link to="/premium" > <DesignerTop>Seja Premium </DesignerTop> </Link>
           </Nav>
         </Head>
@@ -35,10 +33,9 @@ class App extends React.Component {
             <Route exact path='/Login' component={Login} />
             <Route exact path='/animefy' component={Anymefy} />
             <Route exact path='/premium' component={Premium} />
-            <Route exact path='/create' component={Tracks} />
+            <Route exact path={this.props.viewDetails} component={Tracks} />
           </Switch>
         </main>
-
         <Foot>
           <h3>Todos os direitos reservados &copy;</h3>
         </Foot>
