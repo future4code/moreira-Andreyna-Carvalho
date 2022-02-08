@@ -2,24 +2,23 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react/cjs/react.development";
 
-function PokeCard(){
-  const [pokemon, setPokemon] = useState({});
+const PokeCard = (props) => {
 
-  const pegaPokemon = (pokeName) => {
-    axios
-      .get(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
-      .then(response => {
-        setPokemon(response.data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
+  const [pokemon, setPokemon] = useState({});
 
   useEffect(() => {
 
-    pegaPokemon(pokemon)
-  }, [pokemon])
+    const pegaPokemon = async () => {
+      try {
+      const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${props.pokemon}`)
+          setPokemon(response.data);
+      }catch(err){
+          console.log('não funcionei',err);
+        }
+    };
+
+    pegaPokemon()
+  }, [props.pokemon])
   
     return (
       <div>
