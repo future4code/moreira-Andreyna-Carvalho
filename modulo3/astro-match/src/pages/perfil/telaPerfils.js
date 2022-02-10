@@ -8,6 +8,7 @@ import Like from '../../components/img/metClick.png';
 import Deslike from '../../components/img/desmet.png';
 import DeslikeMetch from '../../components/img/desmetClick.png';
 import Msg from '../../components/img/msg.png';
+import { Link } from 'react-router-dom';
 
 
 function Perfils(props) {
@@ -89,7 +90,7 @@ function Perfils(props) {
 		<div>
 			<DivClicks>
 				<Paragrafo>Ver match:</Paragrafo>
-				<ImgClickMsg src={Msg} onClick={() => props.telaDoMatch()}></ImgClickMsg>
+				<Link to="/matches"><ImgClickMsg src={Msg}></ImgClickMsg></Link>
 			</DivClicks>
 			<DivInfo>
 				<Img src={perfil.photo} alt="foto do match" />
