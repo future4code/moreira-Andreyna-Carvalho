@@ -8,11 +8,11 @@ export const Img = styled.img`
 `
 
 export const DivInfo = styled.div`
-	text-align: center;
 	align-items: center;
-	justify-content: center;
 	display: flex;
 	flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
 `
 
 export const InfoH1 = styled.h1`
