@@ -8,8 +8,6 @@ import Limpar from '../../components/img/limpar.png';
 
 import { DivClicks, ImgClickMsg, Paragrafo } from '../perfil/style';
 import { Container, Dados, Img, LimparMatch, NomeH1 } from './style';
-import { Link } from 'react-router-dom';
-import { Fundao } from '../../components/styedAll';
 
 function Match(props) {
 	const [ arrayMatch, setArrayMatch ] = useState([]);
@@ -44,7 +42,7 @@ function Match(props) {
 		<div>
 			<DivClicks>
 				<Paragrafo>Dar Match</Paragrafo>
-				<Link to="/"><ImgClickMsg src={Msg}></ImgClickMsg></Link>
+				<ImgClickMsg src={Msg} onClick={() => props.telaDoPerfil()} />
 			</DivClicks>
 			<Container>
 				{arrayMatch.map((perfil) => {
