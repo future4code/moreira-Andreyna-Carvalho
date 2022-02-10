@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
 export const Img = styled.img`
-    width: 380px;
+    border-radius: 10px;
+    width: 320px;
+    height: 320px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     @media (max-width: 768px) {
         width: 280px;
     }
@@ -11,8 +14,9 @@ export const DivInfo = styled.div`
 	align-items: center;
 	display: flex;
 	flex-direction: column;
-    width: 50%;
+    width: 60%;
     margin: 0 auto;
+    height: 100px;
 `
 
 export const InfoH1 = styled.h1`

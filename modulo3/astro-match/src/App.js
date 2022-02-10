@@ -8,20 +8,17 @@ import { Link, Route } from 'react-router-dom';
 function App() {
 	return (
 		<Fundao>
-			<Header>
-				<Img src={Logo} />
-			</Header>
-			<Route exact path="/" component={Perfils} />
-			<Route exact path="/matches" component={Match} />
-			<Link to="/">
+				<Link to="/">
 					<SpanNone>Home</SpanNone>
 				</Link>
 				<Link to="/matches">
 					<SpanNone>Home</SpanNone>
 				</Link>
-			<footer>
-
-			</footer>
+			<Header>
+				<Img src={Logo} />
+			</Header>
+			<Route exact path="/" component={Perfils} />
+			<Route exact path="/matches" component={Match} />
 		</Fundao>
 	);
 }
