@@ -16,8 +16,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && cp build/index.html build/200.html",
     "test": "react-scripts test",
+    "build":"echo 'hello build'",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
