@@ -1,38 +1,23 @@
-import React, { useState } from 'react';
-import { Fundao, Header, Img } from './components/styedAll';
-import Match from './pages/match/telaMatch';
-import Perfils from './pages/perfil/telaPerfils';
-import Logo from './components/img/logo.png';
+//Importações necessarias
+import React from "react";
+import { Link, Switch, Route } from 'react-router-dom';
+import { SpanNone } from "./components/styedAll";
+import MudarPagina from "./pages/mudaPagina";
 
-function App() {
-	const [ mudarTela, setMudarTela ] = useState('');
 
-	const telaDoPerfil = () => {
-		setMudarTela('telaPerfil');
-	};
-	const telaDoMatch = () => {
-		setMudarTela('telaMatch');
-	};
+class App extends React.Component {
 
-	const selecionarPagina = () => {
-		switch (mudarTela) {
-			case 'telaPerfil':
-				return <Perfils telaDoMatch={telaDoMatch} />;
-			case 'telaMatch':
-				return <Match telaDoPerfil={telaDoPerfil} />;
-			default:
-				return <Perfils telaDoMatch={telaDoMatch} />;
-		}
-	};
+  render() {
 
-	return (
-		<Fundao>
-				<Header>
-					<Img src={Logo} />
-				</Header>
-				<div>{selecionarPagina()}</div>
-		</Fundao>
-	);
+    return (
+      <div>
+          <Link to="/"> <SpanNone>Home</SpanNone></Link>
+          <Switch>
+            <Route exact path='/' component={MudarPagina} />
+          </Switch>
+      </div>
+    );
+  }
 }
 
 export default App;
