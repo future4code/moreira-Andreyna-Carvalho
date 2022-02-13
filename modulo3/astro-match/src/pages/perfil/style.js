@@ -44,7 +44,7 @@ export const ImgClick = styled.img`
     @media (max-width: 768px) {
         width: 120px;
         cursor: pointer;
-        margin: 40px 80px;
+        margin: 520px 20px;
     }
 `
 export const ImgClickMsg = styled.img`
