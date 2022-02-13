@@ -9,9 +9,8 @@ export const Header = styled.header`
 `
 
 export const Img = styled.img`
-	height: 17vh;
-	padding: 10px;
-	@media (max-width: 768px) {
+	height:17vh;
+		@media (max-width: 768px) {
 		width: 50%;
 	}
 `;
