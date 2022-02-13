@@ -16,7 +16,9 @@ export const DivInfo = styled.div`
 	flex-direction: column;
     width: 60%;
     margin: 0 auto;
-    height: 100px;
+    height: 100px;@media (max-width: 768px) {
+        width: 90%;
+    }
 `
 
 export const InfoH1 = styled.h1`
@@ -44,7 +46,7 @@ export const ImgClick = styled.img`
     @media (max-width: 768px) {
         width: 120px;
         cursor: pointer;
-        margin: 520px 20px;
+        margin: 540px 20px;
     }
 `
 export const ImgClickMsg = styled.img`
