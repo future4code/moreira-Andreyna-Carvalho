@@ -4,9 +4,9 @@ import { Link, Route, Switch } from "react-router-dom";
 import AllTrip from "./pages/allTrip/allTrip";
 import CreateNewTrip from "./pages/createNewTrip/createNewTrip";
 import Home from "./pages/homePage/home";
-import Login from "./pages/LoginPage/login";
 import MudarPagina from "./pages/mudarPagina";
 import Subscribe from "./pages/subscribeUser/subscrib";
+import VerificaLogin from "./pages/verificaLogin";
 
 function App() {
   //Vou ser uma função de Rotas
@@ -21,8 +21,7 @@ function App() {
       <Switch>
         <Route exact path='/' component={Home}/>
 
-        <Route exact path='/login' component={Login}/>
-        <Route exact path='/dashboard' component={MudarPagina}/>
+        <Route exact path='/area-admin' component={VerificaLogin}/>
         <Route exact path='/create-trip' component={CreateNewTrip}/>
 
         <Route exact path='/all-trip' component={AllTrip}/>
