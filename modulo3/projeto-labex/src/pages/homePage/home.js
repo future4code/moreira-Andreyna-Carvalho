@@ -1,14 +1,27 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { ButtonDois, ButtonUm, ContainerAll, ContainerButtons, ContainerColumn, ContainerText, ImgText, Paragrafo, ParagrafoCotainer } from './homeSyled';
 
+import Text1 from '../../components/img/parte1.png';
+import Text2 from '../../components/img/parte2.png';
 
 export default function Home() {
-  //Vou ser uma função de home
-  return (
-    <div>
-      <h1>Viagem LabeX</h1>
-      <button></button>
-      <Link to='/all-trip'><button>Ver viagens disponíveis</button></Link>
-      <Link to='/area-admin'><button>Área do Admin</button></Link>
-    </div>
-  );
+	//Vou ser uma função de home
+	return (
+		<ContainerAll>
+			<ContainerColumn>
+				<ImgText src={Text1} />
+				<ImgText src={Text2} />
+			</ContainerColumn>
+			<ContainerButtons>
+				<ParagrafoCotainer>
+					<Paragrafo>SE INSCREVA PARA VIAGENS ESPACIAIS, ALÉM DA NOSSA REALIDADE</Paragrafo>
+					<Paragrafo>E CHEGUE ONDE NINGUÉM JAMAIS IMAGINOU CHEGAR!</Paragrafo>
+				</ParagrafoCotainer>
+        <ContainerColumn>
+				<Link to="/all-trip"><ButtonUm>Ver viagens disponíveis</ButtonUm></Link>
+				<Link to="/area-admin"><ButtonDois>Área do Admin</ButtonDois></Link>
+        </ContainerColumn>
+			</ContainerButtons>
+		</ContainerAll>
+	);
 }
