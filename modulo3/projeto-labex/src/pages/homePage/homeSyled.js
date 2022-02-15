@@ -36,7 +36,6 @@ export const ParagrafoCotainer = styled.div`
     width: 100%;
   }
 `
-
 export const Paragrafo = styled.p`
 	color: white;
 	font-size: 28px;
