@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Fundo } from './AllTripStyled';
 
 export default function AllTrip() {
 	//Vou ser uma função de ver todas as viagens
@@ -22,7 +23,7 @@ export default function AllTrip() {
 	}, []);
 
 	return (
-		<div>
+		<Fundo>
 			<div>
 				<Link to="/">
 					<button>Voltar ao home</button>
@@ -38,7 +39,7 @@ export default function AllTrip() {
 					return (
 						<div key={dados.id}>
 							<h1>Nome: {dados.name}</h1>
-							<h2>Descrinção: {dados.description}</h2>
+							<h2>Descrição: {dados.description}</h2>
 							<h2>Planeta ou Universo: {dados.planet}</h2>
 							<h2>Duração: {dados.durationInDays}</h2>
 							<h2>Data da viagem: {dados.date}</h2>
@@ -46,6 +47,6 @@ export default function AllTrip() {
 					);
 				})}
 			</div>
-		</div>
+		</Fundo>
 	);
 }

@@ -1,5 +1,15 @@
 import { Link } from 'react-router-dom';
-import { ButtonDois, ButtonUm, ContainerAll, ContainerButtons, ContainerColumn, ContainerText, ImgText, Paragrafo, ParagrafoCotainer } from './homeSyled';
+import {
+	ButtonDois,
+	ButtonUm,
+	ContainerAll,
+	ContainerButtons,
+	ContainerColumn,
+	Div,
+	ImgText,
+	Paragrafo,
+	ParagrafoCotainer
+} from './homeSyled';
 
 import Text1 from '../../components/img/parte1.png';
 import Text2 from '../../components/img/parte2.png';
@@ -17,10 +27,18 @@ export default function Home() {
 					<Paragrafo>SE INSCREVA PARA VIAGENS ESPACIAIS, ALÉM DA NOSSA REALIDADE</Paragrafo>
 					<Paragrafo>E CHEGUE ONDE NINGUÉM JAMAIS IMAGINOU CHEGAR!</Paragrafo>
 				</ParagrafoCotainer>
-        <ContainerColumn>
-				<Link to="/all-trip"><ButtonUm>Ver viagens disponíveis</ButtonUm></Link>
-				<Link to="/area-admin"><ButtonDois>Área do Admin</ButtonDois></Link>
-        </ContainerColumn>
+				<ContainerColumn>
+					<Div>
+						<Link to="/all-trip">
+							<ButtonUm>Ver viagens disponíveis</ButtonUm>
+						</Link>
+					</Div>
+					<div>
+						<Link to="/area-admin">
+							<ButtonDois>Área do Admin</ButtonDois>
+						</Link>
+					</div>
+				</ContainerColumn>
 			</ContainerButtons>
 		</ContainerAll>
 	);

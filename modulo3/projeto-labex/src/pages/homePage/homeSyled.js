@@ -1,8 +1,12 @@
 import styled from 'styled-components';
+import Fundo from '../../components/img/fundo4.jpeg'
 
 export const ContainerAll = styled.div`
+  background: url(${Fundo});
+  width: 100%;
+	height: 100vh;
+	background-size: cover;
 	text-align: center;
-	width: 100%;
 	padding: 5% 0;
   overflow-x: hidden;
   @media (min-width: 1600px) {
@@ -68,9 +72,9 @@ export const ButtonUm = styled.button`
   width: 380px;
   border-radius: 350px;
   height: 50px;
-	margin: 17% 17%;
   &:hover{
     background: linear-gradient(90deg, #471254 40%, #71c5f5 100%);
+    border: solid 2px black;
   }
   @media (min-width: 1600px) {
     margin: 10% 42%;
@@ -97,9 +101,9 @@ export const ButtonDois = styled.button`
   width: 380px;
   border-radius: 350px;
   height: 50px;
-	margin: 0;
   &:hover{
     background: linear-gradient(90deg, #471254 40%, #71c5f5 100%);
+    border: solid 2px black;
   }
   @media (min-width: 1600px) {
     margin: 5%;
@@ -116,4 +120,7 @@ export const ButtonDois = styled.button`
     display: flex;
     justify-content: center;
   }
+`
+export const Div = styled.div`
+  margin: 17%;
 `
