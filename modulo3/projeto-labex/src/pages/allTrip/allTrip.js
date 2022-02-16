@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { urlViagem } from '../../components/url/urls';
 import { Fundo } from './AllTripStyled';
 
 export default function AllTrip() {
@@ -9,13 +10,13 @@ export default function AllTrip() {
 
 	const getViagens = () => {
 		axios
-			.get('https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trips')
+			.get(urlViagem)
 			.then((res) => {
 				setViagens(res.data.trips);
 				console.log(res.data.trips);
 			})
 			.catch((err) => {
-				console.log('Não localizado:', err);
+				alert(err);
 			});
 	};
 	useEffect(() => {

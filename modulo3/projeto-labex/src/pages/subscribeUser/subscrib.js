@@ -1,44 +1,66 @@
-import React, { useState } from "react";
-
-//Peguei da net
-const verCalendario = () => {
-  const data = new Date(Date.now());
-  const mes = ("0" + (data.getMonth() + 1)).slice(-2);
-  const ano = data.getFullYear();
-  let dia = Number(data.getDay()) + 2;
-  dia = ("0" + dia.toString()).slice(-2);
-  return `${ano}/${mes}/${dia}`;
-};
+import axios from 'axios';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { urlViagem } from '../../components/url/urls';
+import { Fundo } from './subsStyled';
 
 export default function Subscribe() {
-  // Vou ser uma função de inscrever o usuário na viagem
-  const [ name, setName] = useState('');
-  const [ description, setDescription] = useState('');
-  const [ planet, setPlanet] = useState('');
-  const [ duration, setDuration] = useState(0);
-  const [ date, setDate] = useState(verCalendario);
+	// Vou ser uma função de inscrever o usuário na viagem
+	const [ form, setForm ] = useState({
+		nome: '',
+		idade: 0,
+		textoCandidatura: '',
+		profissao: '',
+		origem: '',
+		viagem: null,
+	});
+  const [ viagem, setViagem] = useState([]);
 
-  //Targets
-  const onTexto = (e) => {
-    setName(e.target.value);
-  };
-  const onDescricao = (e) => {
-    setDescription(e.target.value);
-  };
-  const onPlaneta = (e) => {
-    setPlanet(e.target.value);
-  };
-  const onDuracao = (e) => {
-    setDuration(e.target.value);
-  };
-  const onData = (e) => {
-    setDate(e.target.value);
-  };
+  const getViagens = () => {
+    axios.get(urlViagem)
+    .then((res) => {
+      setViagem(res.data.trips)
+    })
+    .catch((err) => {
+      alert(err)
+    })
+  }
+	
+  const onInput = (e) => {
+    const {value, dados} = e.target;
+    onChange(value, dados)
+  }
 
+  const postFormulario = (e) => {
+    const body = {
+      name: form.nome,
+      age: form.idade,
+      applicationText: form.textoCandidatura,
+      profession: form.profissao,
+      country: form.origem,
+    }
+    axios.post(`${urlViagem}/${form.viagem}/apply`, body)
+    .then((res) => {
+      alert('Sua inscrição foi enviada com sucesso conforme:' res)
+    })
+    .catch((err) => {
+      alert('Infelizmente não foi possível fazer sua inscrição devido ao:' err);
+    })
+  }
 
-  return (
-    <div>
-      <h1>Se inscrever</h1>
-    </div>
-  );
+	return (
+		<Fundo>
+			<Link to="/all-trip">
+				<button>Voltar para as viagens</button>
+			</Link>
+			<h1>Se inscrever</h1>
+			<form>
+				<input type="checkbox" />
+				<input type="text" placeholder="Qual o seu nome?" />
+				<input type="number" placeholder="Qual a sua idade?" />
+				<input type="text" placeholder="Texto de candidatura" />
+				<input type="text" placeholder="Qual sua profissão?" />
+			</form>
+		</Fundo>
+	);
 }

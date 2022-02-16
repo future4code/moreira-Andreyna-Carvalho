@@ -1,0 +1,1 @@
+export const urlViagem = 'https://us-central1-labenu-apis.cloudfunctions.net/labeX/:aluno/trips';
