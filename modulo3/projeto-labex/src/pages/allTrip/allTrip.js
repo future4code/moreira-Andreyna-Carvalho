@@ -13,7 +13,6 @@ export default function AllTrip() {
 			.get(urlViagem)
 			.then((res) => {
 				setViagens(res.data.trips);
-				console.log(res.data.trips);
 			})
 			.catch((err) => {
 				alert(err);

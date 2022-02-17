@@ -1,66 +1,105 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { urlViagem } from '../../components/url/urls';
 import { Fundo } from './subsStyled';
 
 export default function Subscribe() {
-	// Vou ser uma função de inscrever o usuário na viagem
-	const [ form, setForm ] = useState({
-		nome: '',
-		idade: 0,
-		textoCandidatura: '',
-		profissao: '',
-		origem: '',
-		viagem: null,
-	});
-  const [ viagem, setViagem] = useState([]);
+	//FUNÇÕES
+	const [ nome, setNome ] = useState('');
+	const [ idade, setIdade ] = useState(0);
+	const [ textoCandidatura, setTextoCandidatura ] = useState('');
+	const [ profissao, setProfissao ] = useState('');
+	const [ origem, setOrigem ] = useState('');
+	const [ viagemEscolha, setViagemEscolha ] = useState('');
 
-  const getViagens = () => {
-    axios.get(urlViagem)
-    .then((res) => {
-      setViagem(res.data.trips)
-    })
-    .catch((err) => {
-      alert(err)
-    })
-  }
+	const [ viagem, setViagem ] = useState([]);
 	
-  const onInput = (e) => {
-    const {value, dados} = e.target;
-    onChange(value, dados)
-  }
+	console.log('sou viagem:',viagemEscolha);
+	//TARGETS
+	const onNome = (e) => {
+		setNome(e.target.value);
+	};
+	const onIdade = (e) => {
+		setIdade(e.target.value);
+	};
+	const onTextoCandidatura = (e) => {
+		setTextoCandidatura(e.target.value);
+	};
+	const onProfissao = (e) => {
+		setProfissao(e.target.value);
+	};
+	const onOrigem = (e) => {
+		setOrigem(e.target.value);
+	};
+  const onViagemEscolha = (e) => {
+		setViagemEscolha(e.target.value);
+	};
 
-  const postFormulario = (e) => {
-    const body = {
-      name: form.nome,
-      age: form.idade,
-      applicationText: form.textoCandidatura,
-      profession: form.profissao,
-      country: form.origem,
-    }
-    axios.post(`${urlViagem}/${form.viagem}/apply`, body)
-    .then((res) => {
-      alert('Sua inscrição foi enviada com sucesso conforme:' res)
-    })
-    .catch((err) => {
-      alert('Infelizmente não foi possível fazer sua inscrição devido ao:' err);
-    })
-  }
+	//Requerimentos da API
+	const getViagens = () => {
+		axios
+			.get(urlViagem)
+			.then((res) => {
+				setViagem(res.data.trips);
+        console.log(res.data.trips);
+			})
+			.catch((err) => {
+				alert(err);
+			});
+	};
+
+	const postFormulario = (e) => {
+		const body = {
+			name: nome,
+			age: idade,
+			applicationText: textoCandidatura,
+			profession: profissao,
+			country: origem
+		};
+		axios
+			.post(`${urlViagem}/${viagemEscolha}apply`, body)
+			.then((res) => {
+				alert('Sua inscrição foi enviada com sucesso');
+			})
+			.catch((err) => {
+				alert('Infelizmente não foi possível fazer sua inscrição devido ao:', err.response);
+				console.log(err.response);
+			});
+	};
 
 	return (
 		<Fundo>
-			<Link to="/all-trip">
-				<button>Voltar para as viagens</button>
-			</Link>
 			<h1>Se inscrever</h1>
 			<form>
-				<input type="checkbox" />
-				<input type="text" placeholder="Qual o seu nome?" />
-				<input type="number" placeholder="Qual a sua idade?" />
-				<input type="text" placeholder="Texto de candidatura" />
-				<input type="text" placeholder="Qual sua profissão?" />
-			</form>
+
+        <select required  placeholder="Escolha uma viagem" onClick={getViagens} value={viagemEscolha} onChange={onViagemEscolha}>
+          {viagem.map((trip) => {
+            return <option value={trip.id}>{trip.name}</option>
+          })}
+        </select>
+
+				<input required type="text" placeholder="Qual o seu nome?"  value={nome} onChange={onNome}/>
+				<input required type="number" placeholder="Qual a sua idade?" value={idade} onChange={onIdade}/>
+				<input required type="text" placeholder="Texto de candidatura" value={textoCandidatura} onChange={onTextoCandidatura}/>
+				<input required type="text" placeholder="Qual sua profissão?" value={profissao} onChange={onProfissao}/>
+				
+        <select required type="text" placeholder="Continente de Origem" value={origem} onChange={onOrigem}>
+          <option>Americano</option>
+          <option>Europeu</option>
+          <option>Asiático</option>
+          <option>Africano</option>
+          <option>Oceania</option>
+          <option>Antártico</option>
+        </select>
+
+      </form>
+
+      <div>
+        <Link to="/all-trip"><button>Voltar para as viagens</button></Link>
+        <button onClick={postFormulario}>Enviar inscrição!</button>
+      </div>
+      
 		</Fundo>
 	);
 }

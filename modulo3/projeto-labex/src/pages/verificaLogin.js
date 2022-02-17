@@ -1,9 +1,16 @@
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 export default function VerificaLogin() {
-  //Vou ser uma função de mudar a página do dashboard para o Detalhes de viagem
-  return (
-    <div>
-      <h1>VerificaLogin</h1>
-    </div>
-  );
+	const history = useHistory();
+	useEffect(
+		() => {
+			const token = localStorage.getItem('token');
+
+			if (token === null) {
+				history.push('/area-admin');
+			}
+		},
+		[history]
+	);
 }
