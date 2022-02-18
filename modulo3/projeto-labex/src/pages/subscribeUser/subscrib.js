@@ -11,11 +11,8 @@ export default function Subscribe() {
 	const [ textoCandidatura, setTextoCandidatura ] = useState('');
 	const [ profissao, setProfissao ] = useState('');
 	const [ origem, setOrigem ] = useState('');
-	const [ viagemEscolha, setViagemEscolha ] = useState('');
-
-	const [ viagem, setViagem ] = useState([]);
+	const [ viagemEscolha, setViagemEscolha ] = useState(localStorage.getItem('inscrever'));
 	
-	console.log('sou viagem:',viagemEscolha);
 	//TARGETS
 	const onNome = (e) => {
 		setNome(e.target.value);
@@ -32,22 +29,6 @@ export default function Subscribe() {
 	const onOrigem = (e) => {
 		setOrigem(e.target.value);
 	};
-  const onViagemEscolha = (e) => {
-		setViagemEscolha(e.target.value);
-	};
-
-	//Requerimentos da API
-	const getViagens = () => {
-		axios
-			.get(urlViagem)
-			.then((res) => {
-				setViagem(res.data.trips);
-        console.log(res.data.trips);
-			})
-			.catch((err) => {
-				alert(err);
-			});
-	};
 
 	const postFormulario = (e) => {
 		const body = {
@@ -55,10 +36,10 @@ export default function Subscribe() {
 			age: idade,
 			applicationText: textoCandidatura,
 			profession: profissao,
-			country: origem
+			country: origem,
 		};
 		axios
-			.post(`${urlViagem}/${viagemEscolha}apply`, body)
+			.post(`${urlViagem}/${viagemEscolha}/apply`, body)
 			.then((res) => {
 				alert('Sua inscrição foi enviada com sucesso');
 			})
@@ -72,13 +53,6 @@ export default function Subscribe() {
 		<Fundo>
 			<h1>Se inscrever</h1>
 			<form>
-
-        <select required  placeholder="Escolha uma viagem" onClick={getViagens} value={viagemEscolha} onChange={onViagemEscolha}>
-          {viagem.map((trip) => {
-            return <option value={trip.id}>{trip.name}</option>
-          })}
-        </select>
-
 				<input required type="text" placeholder="Qual o seu nome?"  value={nome} onChange={onNome}/>
 				<input required type="number" placeholder="Qual a sua idade?" value={idade} onChange={onIdade}/>
 				<input required type="text" placeholder="Texto de candidatura" value={textoCandidatura} onChange={onTextoCandidatura}/>
@@ -92,7 +66,6 @@ export default function Subscribe() {
           <option>Oceania</option>
           <option>Antártico</option>
         </select>
-
       </form>
 
       <div>

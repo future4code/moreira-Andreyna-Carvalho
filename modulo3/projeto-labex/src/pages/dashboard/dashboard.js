@@ -13,6 +13,10 @@ export default function Dashboard(props){
 
   //Fazer uma função que ao clicar vai receber o id
   //e vamos guardar no local stody
+  const recebeId = (id) => {
+    console.log('guardei o id',id);
+    localStorage.setItem('id', id)
+  }
 
   //DESLOGAR O USUÁRIO
   const deslogar = () => {
@@ -63,7 +67,7 @@ export default function Dashboard(props){
 					return (
 						<div key={dados.id}>
 							<h1>Nome: {dados.name}</h1>
-              <button onClick={() => recebeId(dados.id)}>Ver mais informações</button>
+              <Link to="/detail-trip"><button onClick={() => recebeId(dados.id)} >Ver mais informações</button></Link>
               <button onClick={() => deleteViagens(dados.id)}>REMOVER</button>
 						</div>
 					);

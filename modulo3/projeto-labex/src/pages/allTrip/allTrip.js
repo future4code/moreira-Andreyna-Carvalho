@@ -8,6 +8,10 @@ export default function AllTrip() {
 	//Vou ser uma função de ver todas as viagens
 	const [ viagens, setViagens ] = useState([]);
 
+	const recebeId = (id) => {	
+		localStorage.setItem('inscrever',id)
+	}
+
 	const getViagens = () => {
 		axios
 			.get(urlViagem)
@@ -28,11 +32,7 @@ export default function AllTrip() {
 				<Link to="/">
 					<button>Voltar ao home</button>
 				</Link>
-				<Link to="/subscribe">
-					<button>Se inscrever</button>
-				</Link>
 			</div>
-
 			<h1>Lista de viagens</h1>
 			<div>
 				{viagens.map((dados) => {
@@ -43,6 +43,11 @@ export default function AllTrip() {
 							<h2>Planeta ou Universo: {dados.planet}</h2>
 							<h2>Duração: {dados.durationInDays}</h2>
 							<h2>Data da viagem: {dados.date}</h2>
+							<div>
+								<Link to="/subscribe">
+									<button onClick={() => recebeId(dados.id)}>Inscrever-se</button>
+								</Link>
+							</div>
 						</div>
 					);
 				})}
