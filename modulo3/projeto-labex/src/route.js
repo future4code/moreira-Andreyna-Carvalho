@@ -7,6 +7,7 @@ import Dashboard from './pages/dashboard/dashboard';
 import Home from './pages/homePage/home';
 import Login from './pages/LoginPage/login';
 import Subscribe from './pages/subscribeUser/subscrib';
+import VerificaLogin from './pages/verificaLogin';
 
 function Routes() {
 	return (
@@ -16,11 +17,14 @@ function Routes() {
 			<Link to="/create-trip" />
 			<Link to="/all-trip" />
 			<Link to="/subscribe" />
+			<Link to="/login" />
 			<Switch>
 				<Route exact path="/" component={Home} />
 
 				<Route exact path="/dashboard" component={Dashboard} />
-				<Route exact path="/area-admin" component={Login} />
+				<Route exact path="/area-admin" component={VerificaLogin} />
+				<Route exact path="/login" component={Login} />
+
 				
 				<Route exact path="/create-trip" component={CreateNewTrip} />
 

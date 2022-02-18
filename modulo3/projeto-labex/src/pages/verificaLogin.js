@@ -8,7 +8,10 @@ export default function VerificaLogin() {
 			const token = localStorage.getItem('token');
 
 			if (token === null) {
-				history.push('/area-admin');
+				history.push('/login');
+			}
+			else {
+				history.push('/dashboard')
 			}
 		},
 		[history]

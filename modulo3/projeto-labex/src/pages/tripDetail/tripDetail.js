@@ -4,13 +4,14 @@ import { urlTripDetail } from "../../components/url/urls";
 import VerificaLogin from "../verificaLogin";
 
 
-export default function TripDetail() {
+export default function TripDetail(props) {
   //Vou ser uma função de de apertar e ver os detalhes
   VerificaLogin();
   useEffect(() => {
     const token = localStorage.getItem('token') 
+    const detalhes = 'https://us-central1-labenu-apis.cloudfunctions.net/labeX/dricaMoreira/trip/' + this.props.id
 
-    axios.get(`${urlTripDetail}`, { // + o id da viagem
+    axios.get(detalhes, { // + o id da viagem
       headers: {
         auth: token
       }

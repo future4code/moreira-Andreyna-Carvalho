@@ -2,27 +2,22 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { urlLogin, urlViagem } from "../../components/url/urls";
+import { urlViagem } from "../../components/url/urls";
 import VerificaLogin from "../verificaLogin";
 
 export default function Dashboard(props){
-  VerificaLogin();
   const history = useHistory();
   const [ viagens, setViagens ] = useState([]);
 
+  VerificaLogin();
+
+  //Fazer uma função que ao clicar vai receber o id
+  //e vamos guardar no local stody
+
   //DESLOGAR O USUÁRIO
   const deslogar = () => {
-    const body = {
-      email: null,
-      password: null,
-    }
-    axios.post(urlLogin, body)
-    .then((res) => {
-    })
-    .catch((err) => {
-      localStorage.setItem('token', null)
-      history.push('/area-admin')
-    })
+    localStorage.clear()
+    history.push('/login')
   }
 
   //MOSTRAR AS VIAGENS EXISTENTES
@@ -37,14 +32,13 @@ export default function Dashboard(props){
 			});
 	};
   const deleteViagens = (id) => {
-    const headers = {
+    axios.delete(`${urlViagem}/${id}`,{
       headers: {
         auth: localStorage.getItem('token')
       }
-    }
-    axios.delete(`${urlViagem}/${id}`, headers)
+    })
 			.then((res) => {
-				setViagens(res.data.trips);
+        console.log(res.data);
 			})
 			.catch((err) => {
 				console.log('Não funcionei dashboard delete', err.response);
@@ -53,8 +47,8 @@ export default function Dashboard(props){
 
 	useEffect(() => {
 		getViagens();
-	}, []);
 
+	}, [getViagens()]);
 
   return (
     <div>
@@ -69,6 +63,7 @@ export default function Dashboard(props){
 					return (
 						<div key={dados.id}>
 							<h1>Nome: {dados.name}</h1>
+              <button onClick={() => recebeId(dados.id)}>Ver mais informações</button>
               <button onClick={() => deleteViagens(dados.id)}>REMOVER</button>
 						</div>
 					);

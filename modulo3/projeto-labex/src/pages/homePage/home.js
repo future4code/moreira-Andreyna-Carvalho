@@ -34,7 +34,7 @@ export default function Home() {
 						</Link>
 					</Div>
 					<div>
-						<Link to="/area-admin">
+						<Link to="/login">
 							<ButtonDois>Área do Admin</ButtonDois>
 						</Link>
 					</div>
