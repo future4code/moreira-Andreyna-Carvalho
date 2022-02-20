@@ -1,8 +1,10 @@
-import { Button } from '@material-ui/core';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { urlTripDetail } from '../../components/url/urls';
+import { Paragrafo } from '../allTrip/AllTripStyled';
+import { Tittle } from '../subscribeUser/subsStyled';
+import { Container, ButtonCreate, ContainerCard, Botoes, Buttons, Linha } from './detailStyled';
 
 export default function TripDetail() {
 	//Vou ser uma função de de apertar e ver os detalhes
@@ -74,30 +76,35 @@ export default function TripDetail() {
 	}, []);
 
 	return (
-		<div>
-			<h1>Trip Detail</h1>
+		<Container>
+			<Tittle>Detalhes de Viagens</Tittle>
 			<Link to="/dashboard">
-				<button>Voltar ao painel administrativo</button>
+				<ButtonCreate>Voltar ao painel administrativo</ButtonCreate>
 			</Link>
-			<h1>{viagemDetalhada.name}</h1>
-      <h1>{viagemDetalhada.description}</h1>
-      <h1>{viagemDetalhada.planet}</h1>
-      <h1>{viagemDetalhada.durationInDays}</h1>
-			<h1>{viagemDetalhada.date}</h1>
+			<ContainerCard>
+				<h1>{viagemDetalhada.name}</h1>
+				<Paragrafo>{viagemDetalhada.description}</Paragrafo>
+				<Paragrafo>{viagemDetalhada.planet}</Paragrafo>
+				<Paragrafo>{viagemDetalhada.durationInDays}</Paragrafo>
+				<Paragrafo>{viagemDetalhada.date}</Paragrafo>
+			</ContainerCard>
 
 			<h1>Candidatos aprovados</h1>
+			<ContainerCard>
 			{aprovados && aprovados.length > 0 ? aprovados.map((dados) => {
-				return <div key={dados.id}>{dados.name}</div>
+				return <Linha key={dados.id}>{dados.name}</Linha>
 				}) : <p>Nenhum candidato foi aprovado ainda</p>}
-
+			</ContainerCard>	
 			<h1>Candidatos pendentes</h1>
 			{pendentes && pendentes.length > 0 ? pendentes.map((dados) => {
-				return <div key={dados.id}>
+				return <ContainerCard key={dados.id}>
 					<h1>{dados.name}</h1>
-					<button onClick={() => aprovarCandidato(dados.id)}>Aprovar candidato</button>
-					<button onClick={() => reprovarCandidato(dados.id)}>Reprovar candidato</button>
-				</div>
+					<Botoes>
+						<Buttons onClick={() => aprovarCandidato(dados.id)}>Aprovar</Buttons>
+						<Buttons onClick={() => reprovarCandidato(dados.id)}>Reprovar</Buttons>
+					</Botoes>
+				</ContainerCard>
 			}) : <p>Essa viagem não possui nenhum candidato pendente</p>}
-		</div>
+		</Container>
 	);
 }

@@ -10,3 +10,6 @@ export const Fundo = styled.div`
 	padding: 5% 0;
   overflow-x: hidden;
 `
+export const Container = styled.div`
+	margin: 12% 0;
+`

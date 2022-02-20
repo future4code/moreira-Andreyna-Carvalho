@@ -2,8 +2,10 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { urlLogin } from "../../components/url/urls";
+import { Form, Input } from "../subscribeUser/subsStyled";
+import { Buttons } from "../tripDetail/detailStyled";
 import VerificaLogin from "../verificaLogin";
-import { Fundo } from "./loginStyled";
+import { Container, Fundo } from "./loginStyled";
 
 
 export default function Login() {
@@ -38,12 +40,16 @@ export default function Login() {
 
   return (
     <Fundo>
-      <form>
-        <input required placeholder="Seu email" value={email} onChange={onEmail}></input>
-        <input required placeholder="Seu email" value={senha} onChange={onSenha}></input>
-      </form>
-      <button onClick={logar}>Fazer login</button>
-      <Link to="/"><button>Voltar para as viagens</button></Link>
+      <Container>
+        <Form>
+          <Input type="email" required placeholder="Seu email" value={email} onChange={onEmail}></Input>
+          <Input type="password" required placeholder="Sua senha" value={senha} onChange={onSenha}></Input>
+        </Form>
+        <div>
+          <Buttons onClick={logar}>Fazer login</Buttons>
+          <Link to="/"><Buttons>Voltar</Buttons></Link>
+        </div>
+      </Container>
     </Fundo>
   );
 }

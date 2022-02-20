@@ -3,7 +3,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { urlViagem } from "../../components/url/urls";
+import { Container, ContainerCard } from "../allTrip/AllTripStyled";
+import { Tittle } from "../subscribeUser/subsStyled";
 import VerificaLogin from "../verificaLogin";
+import { Botoes, Buttons, ButtonSub } from "./dashboardStyled";
 
 export default function Dashboard(props){
   const history = useHistory();
@@ -56,23 +59,23 @@ export default function Dashboard(props){
 
   return (
     <div>
-      <div>
-      <Link to="/"><button>Voltar ao home</button></Link>
-        <Link to="/create-trip"><button>Criar viagem</button></Link>
-        <button onClick={deslogar}>Fazer logout</button>
-      </div>
-      <h1>Lista de viagens</h1>
-			<div>
+      <Botoes>
+      <Link to="/"><Buttons>Voltar ao home</Buttons></Link>
+        <Link to="/create-trip"><Buttons>Criar viagem</Buttons></Link>
+        <Buttons onClick={deslogar}>Fazer logout</Buttons>
+      </Botoes>
+      <Tittle>Lista de viagens</Tittle>
+			<Container>
 				{viagens.map((dados) => {
 					return (
-						<div key={dados.id}>
+						<ContainerCard key={dados.id}>
 							<h1>Nome: {dados.name}</h1>
-              <Link to="/detail-trip"><button onClick={() => recebeId(dados.id)} >Ver mais informações</button></Link>
-              <button onClick={() => deleteViagens(dados.id)}>REMOVER</button>
-						</div>
+              <Link to="/detail-trip"><ButtonSub onClick={() => recebeId(dados.id)}>INFO</ButtonSub></Link>
+              <ButtonSub onClick={() => deleteViagens(dados.id)}>REMOVER</ButtonSub>
+						</ContainerCard>
 					);
 				})}
-			</div>
+			</Container>
     </div>
   );
 }

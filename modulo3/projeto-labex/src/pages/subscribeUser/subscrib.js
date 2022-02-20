@@ -2,17 +2,18 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { urlViagem } from '../../components/url/urls';
-import { Fundo } from './subsStyled';
+import { Button, Form, Fundo, Input, Options, Selects, Tittle } from './subsStyled';
+import { Paises } from '../../components/paises/paises';
 
 export default function Subscribe() {
 	//FUNÇÕES
 	const [ nome, setNome ] = useState('');
-	const [ idade, setIdade ] = useState(0);
+	const [ idade, setIdade ] = useState('');
 	const [ textoCandidatura, setTextoCandidatura ] = useState('');
 	const [ profissao, setProfissao ] = useState('');
 	const [ origem, setOrigem ] = useState('');
 	const [ viagemEscolha, setViagemEscolha ] = useState(localStorage.getItem('inscrever'));
-	
+
 	//TARGETS
 	const onNome = (e) => {
 		setNome(e.target.value);
@@ -51,26 +52,24 @@ export default function Subscribe() {
 
 	return (
 		<Fundo>
-			<h1>Se inscrever</h1>
-			<form>
-				<input required type="text" placeholder="Qual o seu nome?"  value={nome} onChange={onNome}/>
-				<input required type="number" placeholder="Qual a sua idade?" value={idade} onChange={onIdade}/>
-				<input required type="text" placeholder="Texto de candidatura" value={textoCandidatura} onChange={onTextoCandidatura}/>
-				<input required type="text" placeholder="Qual sua profissão?" value={profissao} onChange={onProfissao}/>
+			<Tittle>Se inscreva para viagens incríveis pelo universo!</Tittle>
+			<Form>
+				<Input required type="text" pattern={"(.*[a-z]){3}"} placeholder="Qual o seu nome?"  value={nome} onChange={onNome}/>
+				<Input required type="number" min="18" placeholder="Qual a sua idade?" value={idade} onChange={onIdade}/>
+				<Input required type="text" pattern={"(.*[a-z]){5}"} placeholder="Qual sua profissão?" value={profissao} onChange={onProfissao}/>
+				<Input required type="text" pattern={"(.*[a-z]){25}"} placeholder="Texto de candidatura" value={textoCandidatura} onChange={onTextoCandidatura}/>
 				
-        <select required type="text" placeholder="Continente de Origem" value={origem} onChange={onOrigem}>
-          <option>Americano</option>
-          <option>Europeu</option>
-          <option>Asiático</option>
-          <option>Africano</option>
-          <option>Oceania</option>
-          <option>Antártico</option>
-        </select>
-      </form>
+        <Selects required type="text" value={origem} onChange={onOrigem}>
+          <Options>Escolha um País</Options>
+					{Paises.map((pais) => {
+						return <Options key={pais}>{pais}</Options>
+					})}
+        </Selects>
+      </Form>
 
       <div>
-        <Link to="/all-trip"><button>Voltar para as viagens</button></Link>
-        <button onClick={postFormulario}>Enviar inscrição!</button>
+        <Link to="/all-trip"><Button>Voltar para as viagens</Button></Link>
+        <Button onClick={postFormulario}>Enviar inscrição!</Button>
       </div>
       
 		</Fundo>

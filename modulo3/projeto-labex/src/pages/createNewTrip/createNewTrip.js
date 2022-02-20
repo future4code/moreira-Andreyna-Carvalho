@@ -1,9 +1,9 @@
-import { TextField } from '@material-ui/core';
 import axios from 'axios';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { urlViagem } from '../../components/url/urls';
-import VerificaLogin from '../verificaLogin';
+import { Button, Form, Input, Tittle } from '../subscribeUser/subsStyled';
+import { ButtonCreate, Fundo } from './newTripStyled';
 
 const verCalendario = () => {
 	const data = new Date();
@@ -65,31 +65,26 @@ export default function CreateNewTrip() {
 	};
 
 	return (
-		<div>
-			<h1>CreateNewTrip</h1>
-			<div>
-				<input placeholder="Nome" name="" size="50" value={nome} onChange={onNome} required />
-				<input placeholder="Planeta" size="50" value={planeta} onChange={onPlaneta} required />
-				<TextField
-					id="date"
-					type="date"
-					variant="outlined"
-					InputLabelProps={{
+		<Fundo>
+			<Tittle>Criar viagem</Tittle>
+			<Form>
+				<Input placeholder="Nome" value={nome} onChange={onNome} required />
+				<Input placeholder="Planeta" value={planeta} onChange={onPlaneta} required />
+				<Input type="date" variant="outlined"
+				InputLabelProps={{
 						shrink: true
 					}}
 					value={data}
 					onChange={onData}
 				/>
 
-				<input placeholder="Descrição" size="50" value={descricao} onChange={onDescricao} required />
-				<input placeholder="Duração em dias" size="50" value={duracao} onChange={onDuracao} required />
-				<button variant="contained" color="secondary" onClick={criarViagem}>
-					Criar viagem
-				</button>
-			</div>
+				<Input placeholder="Descrição" value={descricao} onChange={onDescricao} required />
+				<Input placeholder="Duração em dias" value={duracao} onChange={onDuracao} required />
+				<ButtonCreate onClick={criarViagem}>Criar viagem</ButtonCreate>
+			</Form>
 			<Link to="/dashboard">
-				<button>voltar</button>
+				<Button>voltar</Button>
 			</Link>
-		</div>
+		</Fundo>
 	);
 }
