@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import axios from "axios";
 import { Post_url } from "../../../constants/urls";
 import useForm from "../../../hooks/useForm";
 
 export default function CreatePost(){
-  const navigate = useNavigate();
   const [ form, onChange, clear ] = useForm({title: '', body:''})
+
+  const submit = (e) => {
+    e.preventDefault()
+  }
 
   const postPosts = () => {
     axios.post(Post_url, form, {
@@ -26,11 +28,11 @@ export default function CreatePost(){
   return (
     <div>
       <h1>Criar Post</h1>
-      <form onSubmit={postPosts}>
+      <form onSubmit={submit}>
         <input required name="title" type={'text'} value={form.title} onChange={onChange} placeholder="Título"></input>
         <input required name="body" type={'text'} value={form.body} onChange={onChange} placeholder="Conteúdo"></input>
       </form>
-      <button onClick={postPosts}> Enviar Post</button>
+      <button type="submit" onClick={postPosts}> Enviar Post</button>
     
     </div>
   );

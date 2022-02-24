@@ -1,8 +1,10 @@
 import React from "react";
 import FormLogin from "../../assents/formLogin";
 import { useNavigate } from "react-router-dom"
+import CheckLogin from "../../assents/checkLogin";
 
 export default function Login() {
+  CheckLogin();
   const navigate = useNavigate();
 
   const registerPage = () => {

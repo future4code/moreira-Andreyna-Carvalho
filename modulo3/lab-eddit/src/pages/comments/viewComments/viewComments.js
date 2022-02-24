@@ -14,12 +14,12 @@ export default function ViewsComments() {
     })
     .catch((err) => {
       alert('Problema na requisição dos comentários')
-    })
+  })
   }
 
   useEffect(() => {
     getCommentsId();
-  }, [getCommentsId()])
+  }, [infoDetailPost])
 
   return (
     <div>
