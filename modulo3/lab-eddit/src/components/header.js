@@ -11,6 +11,11 @@ export const Header = styled.header`
 
 export const Img = styled.img`
   width: 8%;
+  @media (max-width: 700px) {
+		margin: 3% 0;
+    width: 16%;
+    text-align: center;
+	}
 `
 
 export const Fundo = styled.div`

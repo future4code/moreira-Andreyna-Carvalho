@@ -1,6 +1,8 @@
+import { Button } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom"
 import FormRegister from "../../assents/formRegister";
+import { Container, H1 } from "../../components/styledFormsLoginRegister";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -10,10 +12,10 @@ export default function Register() {
   }
 
   return (
-    <div>
-      <h1>Sou um Register</h1>
+    <Container>
+      <H1>Faça o seu Cadastro Agora! e Aproveite a UrOpine!</H1>
       <FormRegister/>
-      <button onClick={returnLogin}>Já possui Login? Faça Login!</button>
-    </div>
+      <Button onClick={returnLogin}>Já possui Login? Faça Login!</Button>
+    </Container>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Banner from '../../constants/imgs/nomeLogo.png'
-import { Container, FundoBalao, H1, Paragrafo, TamanhoDivImg, TamanhoImg } from "./styledHome";
+import { Buttons, ButtonsCadastro, ButtonsLogin, Container, ContainerButtons, FundoBalao, H1, H1Autor, H1Lateral, Paragrafo, TamanhoDivImg, TamanhoImg } from "./styledHome";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -27,8 +27,12 @@ export default function Home() {
         </FundoBalao>
       </TamanhoDivImg>
       <div>
-        <button onClick={login}>Entrar</button>
-        <button onClick={register}>Registra-se</button>
+        <H1Lateral>"Eu... livros! E inteligência! Há coisas mais importantes como amizade e bravura"</H1Lateral> <H1Autor> Hermione Granger - Harry Potter</H1Autor>
+        <ContainerButtons>
+          <h1>VAMOS NESSA?</h1>
+          <ButtonsLogin onClick={login}>Entrar</ButtonsLogin>
+          <ButtonsCadastro onClick={register}>Registrar-se</ButtonsCadastro>
+        </ContainerButtons>
       </div>
     </Container>
   );
