@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { IMG_url, Post_url } from '../../../constants/urls';
+import { ImgProfile, Loading } from '../styledPost';
+import Gif from '../../../constants/imgs/loading.gif'
 
 export default function ViewPost() {
 	const navigate = useNavigate();
 	const [ infoPost, setInfoPost ] = useState([]);
-	const [ infoProfile, setInfoProfile ] = useState([]);
+	const [ infoProfile, setInfoProfile ] = useState({});
 
 	const getPosts = () => {
 		axios
@@ -27,7 +29,7 @@ export default function ViewPost() {
 		axios
 			.get(IMG_url)
 			.then((res) => {
-        setInfoProfile(res.data.hits);
+        setInfoProfile(res.data.profile);
 			})
 			.catch((err) => {
 				console.log('não deu certo', err.response);
@@ -49,23 +51,18 @@ export default function ViewPost() {
 		<div>
 			<h1>Todos os Post</h1>
 			<div>
-      {infoProfile.map((profile) => {
-          return <div key={profile.id}>
-            <img src={profile.userImageURL} alt="img perfil" />
-            <img src={profile.largeImageURL} alt="" />
-          </div>
-        })}
-
 				{infoPost && infoPost.length > 0 ? (
 					infoPost.map((posts) => {
 						return (
 							<div key={posts.id}>
 								<div>
+								<ImgProfile src={infoProfile.photo} href="Anonimo"></ImgProfile>
 									<p>{posts.username}</p>
 									<p>{posts.title}</p>
-									<p>{posts.createdAt}</p>
 								</div>
-								<div>{posts.body}</div>
+								<div>
+									{posts.body}
+									</div>
 								<div>
 									<p>{posts.voteSum}</p>
 									<p onClick={() => idComments(posts.id)}>
@@ -76,8 +73,10 @@ export default function ViewPost() {
 							</div>
 						);
 					})
-				) : (
-					<p>Aguarde o carregamento dos posts...</p>
+				) : ( <div>
+					<h1>Carregando posts...</h1>
+					<Loading src={Gif}></Loading>
+					</div>
 				)}
 			</div>
 		</div>

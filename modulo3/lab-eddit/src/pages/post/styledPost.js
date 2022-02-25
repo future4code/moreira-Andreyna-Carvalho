@@ -109,3 +109,12 @@ export const ButtonsPost= styled.button`
       margin-bottom: 10%;
 	}
 `
+export const ImgProfile = styled.img`
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+`
+export const Loading = styled.img`
+  width: 25%;
+  margin-bottom: 30px;
+`
