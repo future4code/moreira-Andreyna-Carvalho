@@ -2,17 +2,28 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { IMG_url, Post_url } from '../../../constants/urls';
-import { ImgProfile, Loading } from '../styledPost';
+import { ContainerCard, ContainerInfo, ContainerProfile, ImgPost, ImgProfile, Loading, ParagrafoText } from '../styledPost';
 import Gif from '../../../constants/imgs/loading.gif'
+
+import darLike from '../../../constants/imgs/darLike.png'
+import Like from '../../../constants/imgs/like.png'
+
+import desLike from '../../../constants/imgs/deslike.png'
+import darDesLike from '../../../constants/imgs/darDeslike.png'
+
+import Comentar from '../../../constants/imgs/comentarios.png'
+import Compatilhar from '../../../constants/imgs/compartilhar.png'
+
+
 
 export default function ViewPost() {
 	const navigate = useNavigate();
 	const [ infoPost, setInfoPost ] = useState([]);
-	const [ infoProfile, setInfoProfile ] = useState({});
+	const [ info, setInfo] = useState([])
+	const [ vote, setVote] = useState(true)
 
 	const getPosts = () => {
-		axios
-			.get(Post_url, {
+		axios.get(Post_url, {
 				headers: {
 					Authorization: localStorage.getItem('tokenEddit')
 				}
@@ -25,20 +36,19 @@ export default function ViewPost() {
 			});
 	};
 
-	const viewProfile = () => {
-		axios
-			.get(IMG_url)
+	const getPhotos = () => {
+		axios.get(IMG_url)
 			.then((res) => {
-        setInfoProfile(res.data.profile);
+				setInfo(res.data.hits);
 			})
 			.catch((err) => {
-				console.log('não deu certo', err.response);
+				console.log(err.response);
 			});
 	};
 
 	useEffect(() => {
 			getPosts();
-      viewProfile();
+			getPhotos();
 		},[getPosts()]
 	);
 
@@ -47,34 +57,42 @@ export default function ViewPost() {
 		navigate('/comments-post');
 	};
 
+	const postVote = (idVote) => {
+
+	}
+
 	return (
 		<div>
 			<h1>Todos os Post</h1>
 			<div>
 				{infoPost && infoPost.length > 0 ? (
-					infoPost.map((posts) => {
+					infoPost.map((posts, index) => {
 						return (
-							<div key={posts.id}>
+							<ContainerCard key={posts.id}>
+								<ContainerProfile>
+									<ImgProfile src={info[index].userImageURL}></ImgProfile>
+									<ParagrafoText>{posts.title}</ParagrafoText>
+									<p>@{posts.username}</p>
+								</ContainerProfile>
 								<div>
-								<ImgProfile src={infoProfile.photo} href="Anonimo"></ImgProfile>
-									<p>{posts.username}</p>
-									<p>{posts.title}</p>
-								</div>
-								<div>
+									<ImgPost src={info[index].largeImageURL}></ImgPost>
 									{posts.body}
 									</div>
-								<div>
+								<ContainerInfo>
+									<img src={darLike} alt="dar like" />
+									<img src={darDesLike} alt="dar deslike"/>
+									<img src={Compatilhar} alt="dar like" />
+									<img src={Comentar} alt="dar like" />
 									<p>{posts.voteSum}</p>
 									<p onClick={() => idComments(posts.id)}>
-										{' '}
 										Ver todos os {posts.commentCount} comentários
 									</p>
-								</div>
-							</div>
+								</ContainerInfo>
+							</ContainerCard>
 						);
 					})
 				) : ( <div>
-					<h1>Carregando posts...</h1>
+					<h1>Aguarde, pois estamos Carregando posts...</h1>
 					<Loading src={Gif}></Loading>
 					</div>
 				)}

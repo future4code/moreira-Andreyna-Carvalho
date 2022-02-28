@@ -8,5 +8,5 @@ export const Auth = {
   }
 }
 // + id do post // comments, ou +id do post // votes
-export const IMG_url = 'https://us-central1-missao-newton.cloudfunctions.net/astroMatch/andreyna/person'
+export const IMG_url = 'https://pixabay.com/api/?key=25855379-87dbdfa77abd804199126f792'
 //'https://pixabay.com/api/?key=25855379-87dbdfa77abd804199126f792' gerador de imagens
