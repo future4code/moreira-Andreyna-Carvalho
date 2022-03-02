@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const Container = styled.div`
   text-align: center;
 `
+export const Body = styled.p`
+  border: dashed 1px black;
+  margin: 7px 0;
+`
 
 export const ContainerDados = styled.div`
   display: flex;
@@ -63,7 +67,7 @@ export const Input = styled.input`
   border-color: black;
   outline: none;
 	::placeholder {
-       color: white;
+       color: black;
    }
 	 @media (min-width: 1600px) {
 		height: 60px;
@@ -78,7 +82,7 @@ export const InputBody = styled.input`
   border-color: black;
   outline: none;
 	::placeholder {
-       color: white;
+       color: black;
    }
 	 @media (min-width: 1600px) {
 		height: 120px;
@@ -110,12 +114,12 @@ export const ButtonsPost= styled.button`
 	}
 `
 export const ImgProfile = styled.img`
-  width: 15%;
+  width: 7%;
   border-radius: 80px;
   overflow: hidden;
 `
 export const ImgPost = styled.img`
-  width: 350px;
+    width: 80%;    
 `
 export const Loading = styled.img`
   width: 25%;
@@ -123,16 +127,17 @@ export const Loading = styled.img`
 `
 
 export const ContainerCard = styled.div`
-  border: dashed 2px  #21CDD9;
+  border: dashed 2px #21CDD9;
   margin: 20px auto;
-  width: 60%;
+  width: 70%;
 `
 export const ContainerProfile = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   padding: 20px 35px;
-  height: 12vh;
+  height: 7vh;
   overflow: hidden;
   background-color: rgba(30,35,45,1);
 `
@@ -141,7 +146,7 @@ export const ContainerInfo = styled.div`
   flex-direction: row;
   align-items: center;
   padding: 20px;
-  height: 8vh;
+  height: 7vh;
   overflow: hidden;
   background-color: rgba(30,35,45,1);
 `
@@ -155,4 +160,39 @@ export const ParagrafoText = styled.p`
   @media (max-width: 700px) {
 		padding: 2% 4%;
 	}
+`
+
+export const ImgCards = styled.img`
+  width: 40px;
+  margin: 0px auto;
+  cursor: pointer;
+  :hover{
+    width: 60px;
+    transition: 0.3s;
+  }
+`
+export const ImgCardsComent = styled.img`
+  width: 50px;
+  margin: 0px auto;
+  cursor: pointer;
+  :hover{
+    width: 80px;
+    transition: 0.3s;
+  }
+`
+export const ButtonRemove= styled.button`
+  width: 20%;
+  border-radius: 50px;
+  color: #21CDD9;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 2px;
+  background-color: transparent;
+  border-color: #21CDD9;
+  :hover{
+    background-color: #21CDD9;
+    color: black;
+    transition: 0.5s;
+  }
 `

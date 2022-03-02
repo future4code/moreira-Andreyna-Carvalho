@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import CheckLogin from '../../assents/checkLogin';
 import { useNavigate } from 'react-router-dom';
 import ViewPost from './viewPosts/viewPost';
@@ -8,6 +8,7 @@ import { Buttons, Container, ContainerDados } from './styledPost';
 export default function Post() {
 	CheckLogin();
 	const navigate = useNavigate();
+	const [ token, setToken] = useState(localStorage.getItem('tokenEddit'))
 
 	const logout = () => {
 		localStorage.removeItem('tokenEddit');
@@ -16,6 +17,17 @@ export default function Post() {
   const home = () => {
 		navigate('/');
 	};
+
+	useEffect(()=>{
+		verifyToken();
+	}, [])
+
+	const verifyToken = () => {
+		if(token === null){
+			localStorage.removeItem('tokenEddit');
+			navigate('/');
+		}
+	}
 
 	return (
 		<Container>

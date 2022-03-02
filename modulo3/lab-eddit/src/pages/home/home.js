@@ -10,7 +10,7 @@ export default function Home() {
     navigate('/login') 
   }
   const register = () => {
-    navigate('/') 
+    navigate('/register') 
   }
 
   return (

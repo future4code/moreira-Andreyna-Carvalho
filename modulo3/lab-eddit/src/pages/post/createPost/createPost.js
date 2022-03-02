@@ -3,6 +3,7 @@ import axios from "axios";
 import { Post_url } from "../../../constants/urls";
 import useForm from "../../../hooks/useForm";
 import { ButtonsPost, Container, Form, Input, InputBody } from "../styledPost";
+import ToastAnimated, { showToast } from "../../ui-lib";
 
 export default function CreatePost(){
   const [ form, onChange, clear ] = useForm({title: '', body:''})
@@ -18,17 +19,17 @@ export default function CreatePost(){
       }
 		})
     .then((res) => {
-      alert('Conteúdo publicado com sucesso!')
       clear();
+      showToast({ type: "success", message: "Post criado com sucesso" });
     })
     .catch((err) => {
-      alert('Sentimos muito, mas não foi possível criar essa publicação')
     })
   }
 
   return (
     <Container>
       <h1>Criar Post</h1>
+      <ToastAnimated/>
       <Form onSubmit={submit}>
         <Input required name="title" type={'text'} value={form.title} onChange={onChange} placeholder="Título"></Input>
         <InputBody required name="body" type={'text'} value={form.body} onChange={onChange} placeholder="Conteúdo"></InputBody>

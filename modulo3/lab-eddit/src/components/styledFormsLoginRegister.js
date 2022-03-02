@@ -7,7 +7,7 @@ export const H1 = styled.h1`
 export const Container = styled.div`
   text-align: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 5% auto;
 `
 
 export const Form = styled.form`
@@ -34,7 +34,7 @@ export const Input = styled.input`
   border-color: black;
   outline: none;
 	::placeholder {
-       color: white;
+       color: black;
    }
 	 @media (min-width: 1600px) {
 		height: 60px;
