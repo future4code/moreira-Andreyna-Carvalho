@@ -37,6 +37,7 @@ export default function FormRegister() {
         <Input onKeyPress={keyPressEnter} required name="username" type={'text'} value={form.username} onChange={onChange} placeholder="Crie seu nome de usuário"></Input>
         <Input onKeyPress={keyPressEnter} required name="email" type={'email'} value={form.email} onChange={onChange} placeholder="Digite seu melhor email"></Input>
         <Input onKeyPress={keyPressEnter} required name="password" minLength={'8'} maxLength={'30'} type={'password'} value={form.password} onChange={onChange} placeholder="Crie sua senha"></Input>
+        <p>Obs.: A senha deve conter mais de 8 dígitos</p>
       </Form>
       <Buttons onClick={registerAccount} type='submit' onKeyPress={keyPressEnter} >Fazer cadastro</Buttons>
     </Container>

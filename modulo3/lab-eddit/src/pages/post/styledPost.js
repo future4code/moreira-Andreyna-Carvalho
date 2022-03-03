@@ -179,6 +179,10 @@ export const ImgCards = styled.img`
   @media (max-width: 700px) {
     width: 30px;
     margin: 7px auto;
+    :hover{
+    width: 40px;
+    transition: 0.3s;
+  }
   }
 `
 export const ImgCardsComent = styled.img`
@@ -192,6 +196,10 @@ export const ImgCardsComent = styled.img`
   @media (max-width: 700px) {
     width: 30px;
     margin: 7px auto;
+    :hover{
+    width: 40px;
+    transition: 0.3s;
+  }
   }
 `
 export const ButtonRemove= styled.button`
