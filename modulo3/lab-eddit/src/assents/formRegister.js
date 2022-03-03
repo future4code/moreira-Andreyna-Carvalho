@@ -4,7 +4,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom"
 import { Register_url } from "../constants/urls";
 import { Buttons, Container, Form, Input } from "../components/styledFormsLoginRegister";
-import { toast } from "react-toastify";
 import ToastAnimated, { showToast } from "../pages/ui-lib";
 
 export default function FormRegister() {

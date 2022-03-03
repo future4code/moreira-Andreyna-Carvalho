@@ -137,7 +137,7 @@ export const ContainerProfile = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 20px 35px;
-  height: 7vh;
+  height: 9vh;
   overflow: hidden;
   background-color: rgba(30,35,45,1);
 `
@@ -149,6 +149,12 @@ export const ContainerInfo = styled.div`
   height: 7vh;
   overflow: hidden;
   background-color: rgba(30,35,45,1);
+  @media (max-width: 700px) {
+    height: 10vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 0;
+  }
 `
 
 export const ParagrafoText = styled.p`
@@ -170,6 +176,10 @@ export const ImgCards = styled.img`
     width: 60px;
     transition: 0.3s;
   }
+  @media (max-width: 700px) {
+    width: 30px;
+    margin: 7px auto;
+  }
 `
 export const ImgCardsComent = styled.img`
   width: 50px;
@@ -178,6 +188,10 @@ export const ImgCardsComent = styled.img`
   :hover{
     width: 80px;
     transition: 0.3s;
+  }
+  @media (max-width: 700px) {
+    width: 30px;
+    margin: 7px auto;
   }
 `
 export const ButtonRemove= styled.button`
@@ -194,5 +208,11 @@ export const ButtonRemove= styled.button`
     background-color: #21CDD9;
     color: black;
     transition: 0.5s;
+  }
+  @media (max-width: 700px) {
+  width: 100%;
+  border-radius: 0;
+  color: #21CDD9;
+  font-size: 12px;
   }
 `

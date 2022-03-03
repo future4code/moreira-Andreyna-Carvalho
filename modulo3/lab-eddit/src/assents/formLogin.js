@@ -5,7 +5,7 @@ import CheckLogin from "./checkLogin";
 import { useNavigate } from "react-router-dom"
 import { Login_url } from "../constants/urls";
 import { Buttons, Container, Form, Input } from "../components/styledFormsLoginRegister";
-import { toast } from "react-toastify";
+import ToastAnimated, { showToast } from "../pages/ui-lib";
 
 export default function FormLogin() {
 	const navigate = useNavigate();
@@ -22,7 +22,7 @@ export default function FormLogin() {
       navigate('/posts')
     })
     .catch((err) => {
-      toast.error('Sentimos muito, mas algo deu errado com o seu Login')
+      showToast({ type: "error", message: "Email ou senha incorretos" });
     })
   }
   const keyPressEnter = (e) => {
@@ -33,6 +33,7 @@ export default function FormLogin() {
 
   return (
     <Container>
+      <ToastAnimated/>
       <Form onSubmit={getIn}>
         <Input onKeyPress={keyPressEnter} required name="email" type={'email'} value={form.email} onChange={onChange} placeholder="Digite seu email"></Input>
         <Input onKeyPress={keyPressEnter} required name="password" type={'password'} value={form.password} onChange={onChange} placeholder="Digite sua senha"></Input>

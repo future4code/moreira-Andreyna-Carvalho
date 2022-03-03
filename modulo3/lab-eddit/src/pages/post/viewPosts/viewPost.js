@@ -45,9 +45,6 @@ export default function ViewPost() {
 				postVoteDeslike();
 				deletVote();
 			})
-			.catch((err) => {
-				console.log(err.response);
-			});
 	};
 
 	const getPhotos = () => {
@@ -56,9 +53,6 @@ export default function ViewPost() {
 			.then((res) => {
 				setInfo(res.data.hits);
 			})
-			.catch((err) => {
-				console.log(err.response);
-			});
 	};
 
 	const idComments = (id) => {
@@ -79,9 +73,6 @@ export default function ViewPost() {
 			showToast({ type: "success", message: "Você adicionou + 1 like ao post" });
 
 		})
-		.catch((err) => {
-			console.log(err.response)
-		})
 	};
 	const postVoteDeslike = (idVote) => {
 		const body = {
@@ -95,8 +86,6 @@ export default function ViewPost() {
 		.then((res) => {
 			showToast({ type: "success", message: "Você deu -1 like ao post" });
 		})
-		.catch((err) => {
-		})
 	};
 
 	const deletVote = (idVote) => {
@@ -108,8 +97,6 @@ export default function ViewPost() {
     .then((res) => {
 			showToast({ type: "success", message: "Você deletou sua interação para adicionar novamente clique duas vezes no like ou deslike" });
     })
-    .catch((err) => {
-    })
   }
 
 	useEffect(
@@ -117,7 +104,7 @@ export default function ViewPost() {
 			getPosts();
 			getPhotos();
 		},
-		[ getPosts()]
+		[ getPosts() ]
 	);
 
 

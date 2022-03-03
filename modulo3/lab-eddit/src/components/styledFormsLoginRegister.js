@@ -8,6 +8,9 @@ export const Container = styled.div`
   text-align: center;
   align-items: center;
   margin: 5% auto;
+  @media (max-width: 700px) {
+    margin: 18.2% auto;
+  }
 `
 
 export const Form = styled.form`
@@ -16,7 +19,7 @@ export const Form = styled.form`
 	width: 70%;
 	margin: 3% auto;
 	@media (max-width: 700px) {
-		margin: 2% 10%;
+		margin: 7% 10%;
 		width: 300px;
 	}
 	@media (min-width: 1600px) {
