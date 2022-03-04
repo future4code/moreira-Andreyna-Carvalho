@@ -7,7 +7,6 @@ import Login from '../pages/login/login';
 import Post from '../pages/post/post';
 import Register from '../pages/register/register';
 import Logo from '../constants/imgs/logo.png';
-import { Footer } from '../components/footer';
 import ErrorPage from '../pages/errorPage';
 
 export default function RoutesAll() {
@@ -30,9 +29,6 @@ export default function RoutesAll() {
 				</Routes>
 			</BrowserRouter>
 
-			<Footer>
-				<h3>Todos os direitos reservados UrOpine &copy;</h3>
-			</Footer>
 		</Fundo>
 	);
 }

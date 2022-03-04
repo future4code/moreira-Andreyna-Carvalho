@@ -224,3 +224,38 @@ export const ButtonRemove= styled.button`
   font-size: 12px;
   }
 `
+export const Selects = styled.select`
+    background-color: rgba(33,205,217,1);
+    padding: 12px 22px;
+    border-radius: 12px;
+    color:black;
+    font-weight: 900;
+    width: 20%;
+    height: 45px;
+	`
+	
+export const Options = styled.option`
+	font-weight: bolder;
+  color: black;
+`
+export const InputDados = styled.input`
+  width: 50%;
+	background: rgba(33,205,217,1);
+	height: 45px;
+	margin: 1% 0;
+	padding: 10px 30px;
+  border-radius: 15px;
+	font-weight: bolder;
+  border-color: black;
+  outline: none;
+	::placeholder {
+       color: black;
+   }
+	 @media (min-width: 1600px) {
+		height: 60px;
+	}
+`
+export const ModalImg = styled.img`
+  text-align: left;
+  margin: 0 5%;
+`

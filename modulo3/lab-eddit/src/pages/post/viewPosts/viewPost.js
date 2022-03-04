@@ -12,8 +12,11 @@ import {
 	ImgCardsComent,
 	ImgPost,
 	ImgProfile,
+	InputDados,
 	Loading,
-	ParagrafoText
+	Options,
+	ParagrafoText,
+	Selects
 } from '../styledPost';
 import Gif from '../../../constants/imgs/loading.gif';
 
@@ -24,13 +27,25 @@ import desLike from '../../../constants/imgs/deslike.png';
 import darDesLike from '../../../constants/imgs/darDeslike.png';
 
 import Comentar from '../../../constants/imgs/comentarios.png';
-import Compatilhar from '../../../constants/imgs/compartilhar.png';
 import ToastAnimated, { showToast } from '../../ui-lib';
+import Share from '../Share';
 
 export default function ViewPost() {
 	const navigate = useNavigate();
 	const [ infoPost, setInfoPost ] = useState([]);
 	const [ info, setInfo ] = useState([]);
+
+	const [ search, setSearch ] = useState('')
+	const [ order, setOrder ] = useState('')
+
+	const [ vote, setVote] = useState(0)
+
+	const onSearch = (e) => {
+		setSearch(e.target.value)
+	}
+	const onOrder = (e) => {
+		setOrder(e.target.value)
+	}
 
 	const getPosts = () => {
 		axios
@@ -41,9 +56,6 @@ export default function ViewPost() {
 			})
 			.then((res) => {
 				setInfoPost(res.data);
-				postVoteLike();
-				postVoteDeslike();
-				deletVote();
 			})
 	};
 
@@ -70,8 +82,8 @@ export default function ViewPost() {
 			}
 		})
 		.then((res) => {
+			setVote(1)
 			showToast({ type: "success", message: "Você adicionou + 1 like ao post" });
-
 		})
 	};
 	const postVoteDeslike = (idVote) => {
@@ -84,6 +96,7 @@ export default function ViewPost() {
 			}
 		})
 		.then((res) => {
+			setVote(-1)
 			showToast({ type: "success", message: "Você deu -1 like ao post" });
 		})
 	};
@@ -95,6 +108,7 @@ export default function ViewPost() {
 			}
 		})
     .then((res) => {
+			setVote(0)
 			showToast({ type: "success", message: "Você deletou sua interação para adicionar novamente clique duas vezes no like ou deslike" });
     })
   }
@@ -103,15 +117,35 @@ export default function ViewPost() {
 		() => {
 			getPosts();
 			getPhotos();
+			postVoteLike();
+			postVoteDeslike();
+			deletVote();
 		},
-		[ getPosts() ]
+		[ infoPost, vote ]
 	);
 
 
 	return (
 		<div>
+			<div>
+				<InputDados placeholder="Pesquise por nome ou título" value={search} onChange={onSearch}/>
+				<Selects value={order} onChange={onOrder}>
+					<Options value=''>Padrão</Options>
+					<Options value='crescente'>Mais votados</Options>
+					<Options value='decrescente'>Menos votados</Options>
+				</Selects>
+			</div>
 			{infoPost && infoPost.length > 0 ? (
-				infoPost.map((posts, index) => {
+				infoPost.filter((posts) => {
+					return posts.username.toLowerCase().includes(search.toLowerCase()) ||
+					posts.title.toLowerCase().includes(search.toLowerCase()) 
+				}).sort((a, b) => {
+					if (order === "decrescente") {
+							return a.voteSum - b.voteSum
+					} else if (order === "crescente") {
+							return b.voteSum - a.voteSum
+					}})
+				.map((posts, index) => {
 					return (
 						<ContainerCard key={posts.id}>
 							<ToastAnimated/>
@@ -129,7 +163,7 @@ export default function ViewPost() {
 								<ImgCards onClick={() => postVoteLike(posts.id)} src={posts.userVote === 1 ? Like : darLike} alt="dar like" />
 								<ImgCards onClick={() => postVoteDeslike(posts.id)} src={posts.userVote === -1 ? desLike : darDesLike} alt="dar like" />
 								<ButtonRemove onClick={() => deletVote(posts.id)}>Zerar meu votos</ButtonRemove>
-								<ImgCardsComent src={Compatilhar} alt="compartilhar" />
+								<Share></Share>
 								<ImgCardsComent onClick={() => idComments(posts.id)} src={Comentar} alt="dar like" />
 								<p>{posts.commentCount && posts.commentCount.length >= 1 ? (<p>comentários: {posts.commentCount}</p>) : <p>comentário: 0</p> }</p>
 							</ContainerInfo>
