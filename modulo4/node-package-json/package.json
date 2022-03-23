@@ -1,5 +1,5 @@
 {
-  "name": "Andreyna",
+  "name": "andreyna",
   "version": "1.0.0",
   "description": "primeira aula de node",
   "main": "index.js",
@@ -8,5 +8,6 @@
     "start": "node ./index.js"
   },
   "author": "Andreyna",
-  "license": "ISC"
+  "license": "ISC",
+  "keywords": []
 }
