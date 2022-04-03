@@ -7,6 +7,13 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+//Função de colocar a data atual do envio
+let dataExtrato = new Date();
+let diaExtrato  = String(dataExtrato.getDate()).padStart(2, '0');
+let mesExtrato  = String(dataExtrato.getMonth() + 1).padStart(2, '0');
+let anoExtrato  = dataExtrato.getFullYear();
+let infoData = diaExtrato + '/' + mesExtrato + '/' + anoExtrato;
+
 // 5- Crie um endpoint que irá adicionar um novo usuário
 app.post("/add-usuario", (req, res) => {
 
@@ -51,20 +58,24 @@ app.get("/procurar-usuario", (req, res) => {
 
 //Função que adiciona o valor do extrato
 app.post("/add-contas", (req, res) => {
-  let infoValor = req.body.valor
-  let infoDescrinção = req.body.descrição
-  let infoCPF = req.headers.cpf
+  let infoCPF = req.query.cpf
+  let result = []
 
-  for (let i = 0; i < users.length; i++) {
-      if (users[i].cpf === infoCPF) {
-          users[i].extrato.push({
-              valor: infoValor,
-              descrição: infoDescrinção
-          })
-      }
+  if (!infoCPF) {
+    res.status(400).send("Coloque cpf no key dos Params e insira o cpf do userário")
   }
 
-  res.send({ users })
+  for (let conta of users) {
+      if (conta.cpf === infoCPF) {
+        conta.extrato.push({
+              valor: req.body.valor,
+              data: infoData,
+              descricao: req.body.descricao
+          })
+          result.push(conta)
+          res.send({result: result})
+        }
+  }
 })
 
 const server = app.listen(process.env.PORT || 3003, () => {
